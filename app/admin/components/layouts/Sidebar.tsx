@@ -1,0 +1,73 @@
+'use client';
+
+import {
+  CarryOutOutlined,
+  DashboardOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  SettingOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+import { Button, Layout, Menu, Tooltip } from 'antd';
+import clsx from 'clsx';
+import Link from 'next/link';
+import { useState } from 'react';
+
+const { Sider } = Layout;
+
+const siderMenuItems = [
+  {
+    key: 'dashboard',
+    icon: <DashboardOutlined />,
+    label: <Link href="/admin">Dashboard</Link>,
+  },
+  {
+    key: 'exams',
+    icon: <CarryOutOutlined />,
+    label: <Link href="/admin/exams">Bài thi</Link>,
+  },
+  {
+    key: 'users',
+    icon: <UserOutlined />,
+    label: <Link href="/admin/users">Người dùng</Link>,
+  },
+  {
+    key: 'settings',
+    icon: <SettingOutlined />,
+    label: <Link href="/admin/settings">Cài đặt</Link>,
+  },
+];
+
+const Sidebar = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <Sider collapsible collapsed={collapsed} trigger={null}>
+      <div
+        className={clsx(
+          'group flex h-16 items-center px-4 font-bold',
+          collapsed ? 'justify-center' : 'justify-between',
+        )}
+      >
+        <span
+          className={clsx('text-xl font-semibold text-white', { 'group-hover:hidden': collapsed })}
+        >
+          {collapsed ? 'A' : 'Admin'}
+        </span>
+        <div className={clsx({ 'hidden group-hover:block': collapsed })}>
+          <Tooltip title={collapsed ? 'Mở thanh bên' : 'Đóng thanh bên'} placement="right">
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{ color: '#fff' }}
+            />
+          </Tooltip>
+        </div>
+      </div>
+      <Menu mode="inline" defaultSelectedKeys={['dashboard']} items={siderMenuItems} />
+    </Sider>
+  );
+};
+
+export default Sidebar;
