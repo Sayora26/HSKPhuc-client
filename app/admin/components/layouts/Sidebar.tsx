@@ -8,14 +8,15 @@ import {
   SettingOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Button, Layout, Menu, Tooltip } from 'antd';
+import { Button, Flex, Layout, Menu, Tooltip } from 'antd';
+import { ItemType, MenuItemType } from 'antd/es/menu/interface';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useState } from 'react';
 
 const { Sider } = Layout;
 
-const siderMenuItems = [
+const siderMenuItems: ItemType<MenuItemType>[] = [
   {
     key: 'dashboard',
     icon: <DashboardOutlined />,
@@ -43,14 +44,15 @@ const Sidebar = () => {
 
   return (
     <Sider collapsible collapsed={collapsed} trigger={null}>
-      <div
-        className={clsx(
-          'group flex h-16 items-center px-4 font-bold',
-          collapsed ? 'justify-center' : 'justify-between',
-        )}
+      <Flex
+        align="center"
+        justify={collapsed ? 'center' : 'space-between'}
+        className="group h-16 px-2!"
       >
         <span
-          className={clsx('text-xl font-semibold text-white', { 'group-hover:hidden': collapsed })}
+          className={clsx('text-xl font-bold text-white', {
+            'group-hover:hidden': collapsed,
+          })}
         >
           {collapsed ? 'A' : 'Admin'}
         </span>
@@ -64,7 +66,7 @@ const Sidebar = () => {
             />
           </Tooltip>
         </div>
-      </div>
+      </Flex>
       <Menu mode="inline" defaultSelectedKeys={['dashboard']} items={siderMenuItems} />
     </Sider>
   );
