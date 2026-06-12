@@ -2,11 +2,11 @@ import { App, ConfigProvider, Layout } from 'antd';
 import Sidebar from './components/layouts/Sidebar';
 import { Content } from 'antd/es/layout/layout';
 import Header from './components/layouts/Header';
-import theme from '@/config/theme';
+import { adminTheme } from '@/config/theme';
 
 const AdminLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
-    <ConfigProvider theme={theme}>
+    <ConfigProvider theme={adminTheme}>
       <App>
         <Layout style={{ minHeight: '100dvh' }}>
           <Sidebar />
