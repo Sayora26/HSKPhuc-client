@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="vi" className={clsx('mdl-js', nunito.variable)}>
-      <body>
+      <body cz-shortcut-listen="true">
         <AntdRegistry>{children}</AntdRegistry>
       </body>
     </html>

@@ -2,6 +2,7 @@
 import { MenuOutlined } from '@ant-design/icons';
 import { Button, Drawer, Flex, Grid, Menu } from 'antd';
 import { ItemType, MenuItemType } from 'antd/es/menu/interface';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -56,8 +57,22 @@ const Navigation = () => {
   ) : (
     <>
       <Button icon={<MenuOutlined />} onClick={() => setOpen(true)} />
-      <Drawer open={open} onClose={() => setOpen(false)} title="Menu" classNames={{ body: 'p-0!' }}>
-        <Menu items={menuItems} mode="inline" selectedKeys={[pathname]} />
+      <Drawer
+        open={open}
+        onClose={() => setOpen(false)}
+        title={
+          <div className="flex justify-center pr-6">
+            <Image src="/img/logo.png" alt="AFú" width={150} height={50} className="h-10 w-auto" />
+          </div>
+        }
+        classNames={{ body: 'p-0!' }}
+      >
+        <Menu
+          items={menuItems}
+          mode="inline"
+          selectedKeys={[pathname]}
+          onClick={() => setOpen(false)}
+        />
       </Drawer>
     </>
   );

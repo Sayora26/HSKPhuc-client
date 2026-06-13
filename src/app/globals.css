@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+:root {
+  --color-primary: #11264f;
+}
+
+@theme inline {
+  --animate-ticker: ticker 25s linear infinite;
+  --color-primary: var(--color-primary);
+}
+
+@layer base {
+  @keyframes ticker {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-100% - 6rem));
+    }
+  }
+}

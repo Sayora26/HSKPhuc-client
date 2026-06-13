@@ -22,7 +22,10 @@ export const landingTheme: ThemeConfig = {
     Layout: {
       headerBg: '#ffffff',
       headerHeight: 64,
-      headerPadding: '0 36px',
+      headerPadding: 0,
+    },
+    Menu: {
+      itemSelectedBg: '#d2d7dc',
     },
   },
 };
