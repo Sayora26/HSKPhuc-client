@@ -1,11 +1,12 @@
 import { landingTheme } from '@/config/theme';
 import { landingForm } from '@/config/form';
 import { App, ConfigProvider, Layout } from 'antd';
-import { Content, Footer } from 'antd/es/layout/layout';
+import { Content } from 'antd/es/layout/layout';
 import clsx from 'clsx';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import Header from './components/layouts/Header';
+import Header from './components/layouts/header';
+import Footer from './components/layouts/footer';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -19,7 +20,7 @@ const MainLayout = ({ children }: { children: Readonly<ReactNode> }) => {
         <Layout className={clsx('min-h-dvh!', inter.variable)}>
           <Header />
           <Content>{children}</Content>
-          <Footer>Footer</Footer>
+          <Footer />
         </Layout>
       </App>
     </ConfigProvider>

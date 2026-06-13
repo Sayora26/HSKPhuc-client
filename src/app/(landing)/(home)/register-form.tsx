@@ -46,11 +46,11 @@ const RegisterForm = () => {
           aria-label="Khoá học"
         />
       </FormItem>
-      <div className="flex justify-end gap-4">
+      <div className="flex flex-col-reverse justify-end gap-4 sm:flex-row">
         <Link href="/gioi-thieu" passHref tabIndex={-1}>
-          <Button size="large">Theo dõi Thầy Phúc</Button>
+          <Button block>Theo dõi Thầy Phúc</Button>
         </Link>
-        <Button type="primary" htmlType="submit" size="large">
+        <Button type="primary" htmlType="submit">
           Nhận tư vấn
         </Button>
       </div>

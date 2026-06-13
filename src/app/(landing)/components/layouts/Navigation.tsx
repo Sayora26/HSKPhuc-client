@@ -71,6 +71,7 @@ const Navigation = () => {
           </div>
         }
         classNames={{ body: 'p-0!' }}
+        size="100%"
       >
         <Menu
           items={menuItems}

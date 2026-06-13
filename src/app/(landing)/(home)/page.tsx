@@ -23,8 +23,8 @@ const Home = () => {
           </Col>
           <Col span={24} md={11}>
             <h1 className="mb-4 text-2xl lg:text-3xl">
-              <strong>Đăng ký sớm</strong>
-              <br />
+              <strong className="not-md:mr-1">Đăng ký sớm</strong>
+              <br className="not-md:hidden" />
               để giữ lịch học với <strong>Thầy Phúc</strong> nhé!
             </h1>
             <RegisterForm />
