@@ -1,9 +1,36 @@
-import TextTicker from './TextTicker';
+import { Container } from '@/components/ui';
+import TextTicker from './text-ticker';
+import RegisterForm from './register-form';
+import { Col, Row } from 'antd';
+import Image from 'next/image';
 
 const Home = () => {
   return (
     <div>
       <TextTicker />
+      <Container className="py-8">
+        <Row gutter={[24, 24]} align="middle">
+          <Col span={24} md={13} className="md:order-1">
+            <Image
+              src="/img/register-banner.png"
+              alt="Đăng ký sớm để giữ lịch học với Thầy Phúc nhé!"
+              width={700}
+              height={700}
+              priority
+              fetchPriority="high"
+              className="w-full object-cover"
+            />
+          </Col>
+          <Col span={24} md={11}>
+            <h1 className="mb-4 text-2xl lg:text-3xl">
+              <strong>Đăng ký sớm</strong>
+              <br />
+              để giữ lịch học với <strong>Thầy Phúc</strong> nhé!
+            </h1>
+            <RegisterForm />
+          </Col>
+        </Row>
+      </Container>
       Home
     </div>
   );

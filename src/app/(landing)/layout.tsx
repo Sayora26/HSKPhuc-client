@@ -1,4 +1,5 @@
 import { landingTheme } from '@/config/theme';
+import { landingForm } from '@/config/form';
 import { App, ConfigProvider, Layout } from 'antd';
 import { Content, Footer } from 'antd/es/layout/layout';
 import clsx from 'clsx';
@@ -13,7 +14,7 @@ const inter = Inter({
 
 const MainLayout = ({ children }: { children: Readonly<ReactNode> }) => {
   return (
-    <ConfigProvider theme={landingTheme}>
+    <ConfigProvider theme={landingTheme} form={landingForm}>
       <App>
         <Layout className={clsx('min-h-dvh!', inter.variable)}>
           <Header />

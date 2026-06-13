@@ -13,7 +13,10 @@ export const landingTheme: ThemeConfig = {
     fontFamily: "'Inter', sans-serif",
     borderRadius: 12,
     controlHeight: 36,
+    colorText: '#383838',
     colorPrimary: '#11264f',
+    colorFillTertiary: '#f5f5f5',
+    colorTextPlaceholder: '#7d7b7f',
   },
   components: {
     Button: {
@@ -23,9 +26,11 @@ export const landingTheme: ThemeConfig = {
       headerBg: '#ffffff',
       headerHeight: 64,
       headerPadding: 0,
+      bodyBg: '#ffffff',
     },
     Menu: {
       itemSelectedBg: '#d2d7dc',
+      lineWidth: 0,
     },
   },
 };

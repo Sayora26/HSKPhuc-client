@@ -29,8 +29,13 @@ const menuItems: ItemType<MenuItemType>[] = [
     label: <div className="font-semibold">Khóa học</div>,
     children: [
       {
-        label: 'Khóa học 1',
+        label: <Link href="#">Khóa đại trà online</Link>,
         key: '/khoa-hoc/1',
+        title: 'Khóa đại trà online',
+      },
+      {
+        label: 'Khóa VIP 1 kèm 1',
+        key: '/khoa-hoc/2',
       },
     ],
   },
