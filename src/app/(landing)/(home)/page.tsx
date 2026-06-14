@@ -5,6 +5,7 @@ import { Col, Row } from 'antd';
 import Image from 'next/image';
 import Introduction from './introduction';
 import Criteria from './criteria';
+import Philosophy from './philosophy';
 
 const Home = () => {
   return (
@@ -40,6 +41,10 @@ const Home = () => {
 
       <Container className="py-8" Component="section">
         <Criteria />
+      </Container>
+
+      <Container className="py-8" Component="section">
+        <Philosophy />
       </Container>
     </div>
   );
