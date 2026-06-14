@@ -3,12 +3,14 @@ import TextTicker from './text-ticker';
 import RegisterForm from './register-form';
 import { Col, Row } from 'antd';
 import Image from 'next/image';
+import Introduction from './introduction';
+import Criteria from './criteria';
 
 const Home = () => {
   return (
     <div>
       <TextTicker />
-      <Container className="py-8">
+      <Container className="py-8" Component="section">
         <Row gutter={[24, 24]} align="middle">
           <Col span={24} md={13} className="md:order-1">
             <Image
@@ -31,7 +33,14 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-      Home
+
+      <Container className="py-8" Component="section">
+        <Introduction />
+      </Container>
+
+      <Container className="py-8" Component="section">
+        <Criteria />
+      </Container>
     </div>
   );
 };

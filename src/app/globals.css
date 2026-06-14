@@ -18,4 +18,8 @@
       transform: translateX(calc(-100% - 6rem));
     }
   }
+
+  .text-gradient {
+    @apply bg-linear-180 from-[#dab76b] to-[#eace8e] bg-clip-text text-transparent;
+  }
 }

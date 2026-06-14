@@ -1,14 +1,20 @@
 import { cn } from '@/lib/utils';
-import { ReactNode } from 'react';
+import { ElementType, ReactNode } from 'react';
 
 const Container = ({
   children,
   className,
+  Component = 'div',
 }: {
   children: Readonly<ReactNode>;
   className?: string;
+  Component?: ElementType;
 }) => {
-  return <div className={cn('mx-auto max-w-7xl px-4 sm:px-6 lg:px-8', className)}>{children}</div>;
+  return (
+    <Component className={cn('mx-auto max-w-7xl px-4 sm:px-6 lg:px-8', className)}>
+      {children}
+    </Component>
+  );
 };
 
 export default Container;
