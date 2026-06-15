@@ -6,6 +6,8 @@
 
 @theme inline {
   --animate-ticker: ticker 25s linear infinite;
+  --breakpoint-xs: 20rem;
+  --breakpoint-lg: 62rem;
   --color-primary: var(--color-primary);
 }
 

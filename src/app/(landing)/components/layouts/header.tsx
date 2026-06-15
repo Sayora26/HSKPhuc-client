@@ -2,7 +2,7 @@ import { Flex } from 'antd';
 import { Header as AntHeader } from 'antd/es/layout/layout';
 import Image from 'next/image';
 import Link from 'next/link';
-import Navigation from './navigation1';
+import Navigation from './navigation';
 import { Container } from '@/components/ui';
 
 const Header = () => {
