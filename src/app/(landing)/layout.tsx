@@ -5,7 +5,7 @@ import { Content } from 'antd/es/layout/layout';
 import clsx from 'clsx';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import Header from './components/layouts/header';
+import Header from './components/layouts/header1';
 import Footer from './components/layouts/footer';
 
 const inter = Inter({
