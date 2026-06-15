@@ -1,11 +1,7 @@
 import { Footer as AntFooter } from 'antd/es/layout/layout';
 
 const Footer = () => {
-  return (
-    <AntFooter>
-      <div className="text-white">Footer</div>
-    </AntFooter>
-  );
+  return <AntFooter>Footer</AntFooter>;
 };
 
 export default Footer;
