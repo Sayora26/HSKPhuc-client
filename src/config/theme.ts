@@ -17,10 +17,13 @@ export const landingTheme: ThemeConfig = {
     colorPrimary: '#11264f',
     colorFillTertiary: '#f5f5f5',
     colorTextPlaceholder: '#7d7b7f',
+    yellowHover: '#ba9f68',
+    yellowActive: '#87642f',
   },
   components: {
     Button: {
       fontWeight: 600,
+      yellow6: '#ae8845',
     },
     Layout: {
       headerBg: '#ffffff',
@@ -31,6 +34,12 @@ export const landingTheme: ThemeConfig = {
     Menu: {
       itemSelectedBg: '#d2d7dc',
       lineWidth: 0,
+    },
+    Radio: {
+      buttonSolidCheckedBg: '#ae8845',
+      buttonSolidCheckedHoverBg: '#ba9f68',
+      buttonSolidCheckedActiveBg: '#87642f',
+      buttonSolidCheckedColor: '#ffffff',
     },
   },
 };

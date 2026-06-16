@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Introduction from './introduction';
 import Criteria from './criteria';
 import Philosophy from './philosophy';
+import LearningRoadmap from './learning-roadmap';
 
 const Home = () => {
   return (
@@ -45,6 +46,10 @@ const Home = () => {
 
       <Container className="py-8" Component="section">
         <Philosophy />
+      </Container>
+
+      <Container className="py-8" Component="section">
+        <LearningRoadmap />
       </Container>
     </div>
   );
