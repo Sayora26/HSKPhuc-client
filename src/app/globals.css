@@ -25,3 +25,17 @@
     @apply bg-linear-180 from-[#dab76b] to-[#eace8e] bg-clip-text text-transparent;
   }
 }
+
+@layer components {
+  .slick-list {
+    @apply -mx-3!;
+  }
+
+  .slick-slide > div {
+    @apply flex gap-6 px-3;
+  }
+
+  .slick-slide > div > div {
+    @apply flex-1;
+  }
+}

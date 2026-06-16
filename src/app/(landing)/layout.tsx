@@ -7,11 +7,17 @@ import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 import Header from './components/layouts/header';
 import Footer from './components/layouts/footer';
+import { Metadata } from 'next';
 
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin', 'vietnamese'],
 });
+
+export const metadata: Metadata = {
+  description:
+    'Học tiếng Trung bài bản bằng phương pháp tư duy đột phá cùng Thầy Phúc. Tập trung vào Hán tự và giao tiếp thực chiến, giúp bạn làm chủ ngôn ngữ tự nhiên, không học vẹt. Đăng ký nhận tư vấn ngay!',
+};
 
 const MainLayout = ({ children }: { children: Readonly<ReactNode> }) => {
   return (

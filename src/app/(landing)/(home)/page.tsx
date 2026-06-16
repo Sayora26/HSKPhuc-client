@@ -9,6 +9,11 @@ import Philosophy from './philosophy';
 import LearningRoadmap from './learning-roadmap';
 import Link from 'next/link';
 import Reviews from './comments';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Học ngôn ngữ bằng tư duy',
+};
 
 const Home = () => {
   return (
