@@ -1,7 +1,6 @@
 'use client';
-import { Button, Form, Input, Select } from 'antd';
+import { Form, Input, Select } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
-import Link from 'next/link';
 
 interface IFormValues {
   name: string;
@@ -10,7 +9,11 @@ interface IFormValues {
   course: string;
 }
 
-const RegisterForm = () => {
+interface RegisterFormProps {
+  children?: React.ReactNode;
+}
+
+const RegisterForm: React.FC<RegisterFormProps> = ({ children }) => {
   return (
     <Form<IFormValues> variant="filled" layout="vertical" noValidate>
       <FormItem<IFormValues> name="name" rules={[{ required: true }]}>
@@ -46,14 +49,7 @@ const RegisterForm = () => {
           aria-label="Khoá học"
         />
       </FormItem>
-      <div className="flex flex-col-reverse justify-end gap-4 sm:flex-row">
-        <Link href="/gioi-thieu" passHref tabIndex={-1}>
-          <Button block>Theo dõi Thầy Phúc</Button>
-        </Link>
-        <Button type="primary" htmlType="submit">
-          Nhận tư vấn
-        </Button>
-      </div>
+      {children}
     </Form>
   );
 };

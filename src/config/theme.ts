@@ -35,6 +35,9 @@ export const landingTheme: ThemeConfig = {
       itemSelectedBg: '#d2d7dc',
       lineWidth: 0,
     },
+    Modal: {
+      titleFontSize: 18,
+    },
     Radio: {
       buttonSolidCheckedBg: '#ae8845',
       buttonSolidCheckedHoverBg: '#ba9f68',

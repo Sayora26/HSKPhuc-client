@@ -1,5 +1,7 @@
 'use client';
-import { Button, Radio, RadioGroupProps } from 'antd';
+import { Button, Modal, Radio, RadioGroupProps } from 'antd';
+import { useState } from 'react';
+import RegisterForm from './register-form';
 
 const options: RadioGroupProps['options'] = [
   {
@@ -29,6 +31,8 @@ const options: RadioGroupProps['options'] = [
 ];
 
 const LearningRoadmap = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <div className="text-center">
@@ -53,10 +57,36 @@ const LearningRoadmap = () => {
           buttonStyle="solid"
           className="inline-flex! flex-wrap justify-center gap-4 *:w-40 *:rounded-xl *:text-center *:font-semibold"
         />
-        <Button variant="solid" color="yellow" size="large" className="mt-4">
+        <Button
+          variant="solid"
+          color="yellow"
+          size="large"
+          className="mt-4"
+          onClick={() => setOpen(true)}
+        >
           Nhận tư vấn lộ trình
         </Button>
       </div>
+      <Modal
+        open={open}
+        title={<div className="text-center">Xây dựng lộ trình học</div>}
+        onCancel={() => setOpen(false)}
+        footer={null}
+        centered
+        destroyOnHidden
+      >
+        <p className="mx-auto mb-8 text-center">
+          Không có một lộ trình chung cho tất cả. Hãy bắt đầu hành trình chinh phục HSK với kế hoạch
+          học được xây dựng riêng cho bạn.
+        </p>
+        <RegisterForm>
+          <div className="text-center">
+            <Button variant="solid" htmlType="submit" color="yellow" className="mt-4">
+              Nhận tư vấn lộ trình
+            </Button>
+          </div>
+        </RegisterForm>
+      </Modal>
     </>
   );
 };

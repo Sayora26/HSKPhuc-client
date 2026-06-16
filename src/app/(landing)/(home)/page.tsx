@@ -1,12 +1,14 @@
 import { Container } from '@/components/ui';
 import TextTicker from './text-ticker';
 import RegisterForm from './register-form';
-import { Col, Row } from 'antd';
+import { Button, Col, Row } from 'antd';
 import Image from 'next/image';
 import Introduction from './introduction';
 import Criteria from './criteria';
 import Philosophy from './philosophy';
 import LearningRoadmap from './learning-roadmap';
+import Link from 'next/link';
+import Reviews from './comments';
 
 const Home = () => {
   return (
@@ -31,7 +33,16 @@ const Home = () => {
               <br className="not-md:hidden" />
               để giữ lịch học với <strong>Thầy Phúc</strong> nhé!
             </h1>
-            <RegisterForm />
+            <RegisterForm>
+              <div className="flex flex-col-reverse justify-end gap-4 sm:flex-row">
+                <Link href="/gioi-thieu" passHref tabIndex={-1}>
+                  <Button block>Theo dõi Thầy Phúc</Button>
+                </Link>
+                <Button type="primary" htmlType="submit">
+                  Nhận tư vấn
+                </Button>
+              </div>
+            </RegisterForm>
           </Col>
         </Row>
       </Container>
@@ -50,6 +61,10 @@ const Home = () => {
 
       <Container className="py-8" Component="section">
         <LearningRoadmap />
+      </Container>
+
+      <Container className="py-8" Component="section">
+        <Reviews />
       </Container>
     </div>
   );
