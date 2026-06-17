@@ -8,7 +8,7 @@ import Criteria from './criteria';
 import Philosophy from './philosophy';
 import LearningRoadmap from './learning-roadmap';
 import Link from 'next/link';
-import Reviews from './comments';
+import Reviews from './reviews';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

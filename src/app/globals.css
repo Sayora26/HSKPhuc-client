@@ -2,6 +2,7 @@
 
 :root {
   --color-primary: #11264f;
+  --color-secondary: #aa8845;
 }
 
 @theme inline {
@@ -9,6 +10,7 @@
   --breakpoint-xs: 20rem;
   --breakpoint-lg: 62rem;
   --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
 }
 
 @layer base {
