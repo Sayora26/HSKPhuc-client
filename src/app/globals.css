@@ -40,4 +40,8 @@
   .slick-slide > div > div {
     @apply flex-1;
   }
+
+  .link-footer {
+    @apply relative pb-0.5 text-white before:absolute before:bottom-0 before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:content-[""] hover:before:scale-x-100;
+  }
 }

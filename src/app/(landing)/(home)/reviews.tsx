@@ -63,10 +63,10 @@ const Comment = ({ data }: { data: IComment }) => {
   return (
     <div className="my-2 rounded-xl bg-[#f3f3f3] p-4 shadow-md shadow-black/30">
       <div className="flex items-center gap-4">
-        <Avatar name={data.name} src={data.avatar} />
-        <span className="text-primary font-semibold">{`${data.name} | ${data.level}`}</span>
+        <Avatar name={data.name} src={data.avatar} size="large" />
+        <span className="text-primary text-lg font-semibold">{`${data.name} | ${data.level}`}</span>
       </div>
-      <p className="mt-2">{`"${data.comment}"`}</p>
+      <p className="mt-2 text-base">{`"${data.comment}"`}</p>
       <div className="flex justify-end">
         <FaQuoteRight className="text-secondary inline text-5xl" />
       </div>

@@ -19,6 +19,7 @@ export const landingTheme: ThemeConfig = {
     colorTextPlaceholder: '#7d7b7f',
     yellowHover: '#ba9f68',
     yellowActive: '#87642f',
+    colorLink: '#ffffff',
   },
   components: {
     Button: {
@@ -30,6 +31,8 @@ export const landingTheme: ThemeConfig = {
       headerHeight: 64,
       headerPadding: 0,
       bodyBg: '#ffffff',
+      footerBg: '#11264f',
+      footerPadding: 0,
     },
     Menu: {
       itemSelectedBg: '#d2d7dc',

@@ -11,7 +11,14 @@ const Header = () => {
       <Container className="h-full!">
         <Flex justify="space-between" align="center" gap={32} className="h-full!">
           <Link href="/" className="shrink-0">
-            <Image src="/img/logo.png" alt="AFú" width={150} height={50} className="h-12 w-full" />
+            <Image
+              src="/img/logo.png"
+              alt="Tiếng Trung AFú"
+              title="Tiếng Trung AFú"
+              width={150}
+              height={50}
+              className="h-12 w-full"
+            />
           </Link>
           <Navigation />
         </Flex>
