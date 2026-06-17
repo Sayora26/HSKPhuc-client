@@ -11,13 +11,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   generator: 'Next.js',
-  applicationName: 'Tiếng Trung AFù',
+  applicationName: 'Tiếng Trung AFú',
   referrer: 'origin-when-cross-origin',
   creator: 'Sayora',
   publisher: 'Vercel',
 
   keywords: [
-    'Tiếng Trung AFù',
+    'Tiếng Trung AFú',
     'Thầy Phúc tiếng Trung',
     'Học tiếng Trung bằng tư duy',
     'Học Hán tự bài bản',
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   ],
 
   title: {
-    template: 'Tiếng Trung AFù - %s',
-    default: 'Tiếng Trung AFù',
+    template: 'Tiếng Trung AFú - %s',
+    default: 'Tiếng Trung AFú',
   },
 };
 

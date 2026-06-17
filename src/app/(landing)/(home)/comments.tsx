@@ -1,5 +1,6 @@
 'use client';
-import { Avatar, Carousel } from 'antd';
+import { Avatar, Carousel, Grid } from 'antd';
+import { FaQuoteRight } from 'react-icons/fa6';
 
 interface IComment {
   id: number;
@@ -50,21 +51,33 @@ const comments: IComment[] = [
   },
 ];
 
-const Comment = ({}: { data?: IComment }) => {
+const Comment = ({ data }: { data: IComment }) => {
   return (
-    <div className="rounded-xl bg-[#f3f3f3] p-4">
-      <div className="flex">
-        <Avatar />
+    <div className="my-2 rounded-xl bg-[#f3f3f3] p-4 shadow-md shadow-black/30">
+      <div className="flex items-center gap-4">
+        <Avatar>
+          {data.name
+            .split(' ')
+            .map((n) => n[0])
+            .join('')}
+        </Avatar>
+        <span className="text-primary font-semibold">{`${data.name} | ${data.level}`}</span>
+      </div>
+      <p className="mt-2">{`"${data.comment}"`}</p>
+      <div className="flex justify-end">
+        <FaQuoteRight className="inline text-5xl" />
       </div>
     </div>
   );
 };
 
 const Reviews = () => {
+  const { md, lg } = Grid.useBreakpoint();
+
   return (
     <div>
       <h2 className="text-primary mb-4 text-2xl font-bold lg:text-3xl">Học viên nói gì</h2>
-      <Carousel draggable slidesPerRow={3} autoplay dots={false}>
+      <Carousel draggable slidesPerRow={lg ? 3 : md ? 2 : 1} dots={false}>
         {comments.map((item) => (
           <Comment key={item.id} data={item} />
         ))}
