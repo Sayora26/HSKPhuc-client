@@ -1,7 +1,7 @@
 'use client';
 import { Container } from '@/components/ui';
 import Icon from '@ant-design/icons';
-import { Button, Col, Row } from 'antd';
+import { Button, Col, Grid, Row } from 'antd';
 import { Footer as AntFooter } from 'antd/es/layout/layout';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,10 +9,12 @@ import { CSSProperties } from 'react';
 import { FaFacebookF, FaTiktok, FaYoutube } from 'react-icons/fa6';
 
 const Footer = () => {
+  const { md } = Grid.useBreakpoint();
+
   return (
     <AntFooter>
       <Container className="py-15 text-white not-md:text-center">
-        <Row gutter={[32, 32]} align="middle">
+        <Row gutter={[32, 32]} align={md ? 'stretch' : 'middle'}>
           <Col span={24} md={6}>
             <Link href="/" className="flex justify-center">
               <Image
@@ -46,12 +48,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="#" className="link-footer">
-                  Liên hệ
+                  Đánh giá
                 </Link>
               </li>
               <li>
                 <Link href="#" className="link-footer">
-                  Đánh giá
+                  Liên hệ
                 </Link>
               </li>
             </ul>
@@ -145,7 +147,7 @@ const Footer = () => {
                 <li>
                   Website:{' '}
                   <Link href="/" className="link-footer" target="_blank" rel="noopener noreferrer">
-                    afuchinese.vercel.app
+                    afuchinese.com
                   </Link>
                 </li>
               </ul>

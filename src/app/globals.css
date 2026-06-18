@@ -7,6 +7,7 @@
 
 @theme inline {
   --animate-ticker: ticker 25s linear infinite;
+  --animate-wiggle: wiggle 0.25s ease-in-out infinite;
   --breakpoint-xs: 20rem;
   --breakpoint-lg: 62rem;
   --color-primary: var(--color-primary);
@@ -20,6 +21,21 @@
     }
     100% {
       transform: translateX(calc(-100% - 6rem));
+    }
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(-10deg);
+    }
+
+    50% {
+      transform: rotate(10deg);
     }
   }
 
