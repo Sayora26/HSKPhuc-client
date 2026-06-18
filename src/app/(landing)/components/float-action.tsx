@@ -4,7 +4,6 @@ import { Zalo } from '@/components/icon';
 import Icon, { PhoneFilled } from '@ant-design/icons';
 import { Dropdown, FloatButton, MenuProps } from 'antd';
 import Link from 'next/link';
-// import { FaFacebookMessenger } from 'react-icons/fa';
 import { FaFacebookMessenger, FaPaperPlane } from 'react-icons/fa6';
 
 const items: MenuProps['items'] = [
@@ -44,10 +43,10 @@ const items: MenuProps['items'] = [
   },
   {
     label: (
-      <Link href="https://zalo.me/8855160047855547" target="_blank" rel="noopener noreferrer">
+      <Link href="https://zalo.me/84853599365" target="_blank" rel="noopener noreferrer">
         <span className="font-bold">Zalo</span>
         <br />
-        <span>Phúc Nguyễn</span>
+        <span>Thầy Phúc</span>
       </Link>
     ),
     key: 'zalo',

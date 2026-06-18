@@ -4,10 +4,10 @@ import Image from 'next/image';
 const Introduction = () => {
   return (
     <div className="rounded-3xl bg-linear-90 from-[#a9bfff] via-[#f3f9ff] to-[#fffcdd] p-8">
-      <Row gutter={[16, 16]} align="middle">
+      <Row gutter={[24, 24]} align="middle">
         <Col span={24} md={10}>
           <Image
-            src="/img/introduction.png"
+            src="/img/introduction-2.png"
             alt="Giới thiệu về Thầy Phúc"
             width={500}
             height={500}
