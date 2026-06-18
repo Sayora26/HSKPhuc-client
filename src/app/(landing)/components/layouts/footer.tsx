@@ -1,8 +1,12 @@
+'use client';
 import { Container } from '@/components/ui';
+import Icon from '@ant-design/icons';
 import { Button, Col, Row } from 'antd';
 import { Footer as AntFooter } from 'antd/es/layout/layout';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CSSProperties } from 'react';
+import { FaFacebookF, FaTiktok, FaYoutube } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -17,12 +21,12 @@ const Footer = () => {
                 title="Tiếng Trung AFú"
                 width={200}
                 height={100}
-                className="object-cover"
+                className="h-auto w-50 object-cover"
               />
             </Link>
             <p className="mt-4 text-center">Bắt đầu học thông minh hơn, không chỉ chăm chỉ hơn.</p>
           </Col>
-          <Col span={24} md={6}>
+          <Col span={24} md={5}>
             <h5 className="mb-4 text-base font-bold">Về tôi</h5>
             <div className="flex flex-col items-start gap-2">
               <Link href="/" className="link-footer">
@@ -42,7 +46,7 @@ const Footer = () => {
               </Link>
             </div>
           </Col>
-          <Col span={24} md={6}>
+          <Col span={24} md={7}>
             <h5 className="mb-4 text-base font-bold">Chương trình dạy</h5>
             <div className="flex flex-col items-start gap-2">
               <Link href="#" className="link-footer">
@@ -59,13 +63,94 @@ const Footer = () => {
           <Col span={24} md={6}>
             <h5 className="mb-4 text-base font-bold">Theo dõi tôi</h5>
             <div className="flex flex-col items-start gap-2">
-              <div className="flex gap-4">
-                <Button />
+              <div className="flex gap-2">
+                <Link href="#" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    icon={<Icon component={FaFacebookF} />}
+                    style={
+                      {
+                        '--hsk-button-default-bg': 'transparent',
+                        '--hsk-button-default-color': '#ffffff',
+                      } as CSSProperties
+                    }
+                    shape="circle"
+                    color="default"
+                    variant="outlined"
+                    size="large"
+                    className="transition-transform hover:-translate-y-1.5"
+                  />
+                </Link>
+                <Link href="#" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    icon={<Icon component={FaTiktok} />}
+                    style={
+                      {
+                        '--hsk-button-default-bg': 'transparent',
+                        '--hsk-button-default-color': '#ffffff',
+                      } as CSSProperties
+                    }
+                    shape="circle"
+                    color="default"
+                    variant="outlined"
+                    size="large"
+                    className="transition-transform hover:-translate-y-1.5"
+                  />
+                </Link>
+                <Link href="#" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    icon={<Icon component={FaYoutube} />}
+                    style={
+                      {
+                        '--hsk-button-default-bg': 'transparent',
+                        '--hsk-button-default-color': '#ffffff',
+                      } as CSSProperties
+                    }
+                    shape="circle"
+                    color="default"
+                    variant="outlined"
+                    size="large"
+                    className="transition-transform hover:-translate-y-1.5"
+                  />
+                </Link>
               </div>
+              <ul className="mt-4 flex flex-col gap-2">
+                <li>
+                  Hotline:{' '}
+                  <Link href="tel:0329408888" className="link-footer">
+                    085 3599 365
+                  </Link>
+                </li>
+                <li>
+                  Email:{' '}
+                  <Link href="mailto:tiengtrungafu@gmail.com" className="link-footer">
+                    tiengtrungafu@gmail.com
+                  </Link>
+                </li>
+                <li>
+                  Website:{' '}
+                  <Link href="/" className="link-footer" target="_blank" rel="noopener noreferrer">
+                    afuchinese.vercel.app
+                  </Link>
+                </li>
+              </ul>
             </div>
           </Col>
         </Row>
       </Container>
+      <div className="bg-[#0b1a3c] py-4 text-center text-xs text-white">
+        <Container>
+          Copyright © 2026 <strong>Tiếng Trung AFú</strong>. All rights reserved. Designed by{' '}
+          <Link
+            href="https://github.com/Sayora26"
+            target="_blank"
+            className="link-footer font-bold"
+            rel="noopener noreferrer"
+          >
+            Sayora
+          </Link>
+          .
+        </Container>
+      </div>
     </AntFooter>
   );
 };

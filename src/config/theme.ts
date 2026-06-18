@@ -1,20 +1,32 @@
 import { theme as antdTheme, ThemeConfig } from 'antd';
+import { merge } from 'lodash';
+
+const variables = {
+  colorPrimary: '#11264f',
+};
 
 const baseTheme: ThemeConfig = {
   algorithm: antdTheme.darkAlgorithm,
   cssVar: {
     prefix: 'hsk',
   },
+  components: {
+    Button: {
+      onlyIconSize: 16,
+      onlyIconSizeSM: 16,
+      onlyIconSizeLG: 18,
+      fontSizeIcon: 16,
+    },
+  },
 };
 
-export const landingTheme: ThemeConfig = {
-  ...baseTheme,
+const landingSpecificTheme: ThemeConfig = {
   token: {
     fontFamily: "'Inter', sans-serif",
     borderRadius: 12,
     controlHeight: 36,
     colorText: '#383838',
-    colorPrimary: '#11264f',
+    colorPrimary: variables.colorPrimary,
     colorFillTertiary: '#f5f5f5',
     colorTextPlaceholder: '#7d7b7f',
     yellowHover: '#ba9f68',
@@ -31,7 +43,7 @@ export const landingTheme: ThemeConfig = {
       headerHeight: 64,
       headerPadding: 0,
       bodyBg: '#ffffff',
-      footerBg: '#11264f',
+      footerBg: variables.colorPrimary,
       footerPadding: 0,
     },
     Menu: {
@@ -50,8 +62,9 @@ export const landingTheme: ThemeConfig = {
   },
 };
 
-export const adminTheme: ThemeConfig = {
-  ...baseTheme,
+export const landingTheme = merge({}, baseTheme, landingSpecificTheme);
+
+const adminSpecificTheme: ThemeConfig = {
   token: {
     fontFamily: "'Nunito', sans-serif",
     colorPrimary: '#174D69',
@@ -70,3 +83,5 @@ export const adminTheme: ThemeConfig = {
     },
   },
 };
+
+export const adminTheme = merge({}, baseTheme, adminSpecificTheme);

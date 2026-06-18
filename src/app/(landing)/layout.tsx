@@ -1,13 +1,14 @@
-import { landingTheme } from '@/config/theme';
 import { landingForm } from '@/config/form';
+import { landingTheme } from '@/config/theme';
 import { App, ConfigProvider, Layout } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import clsx from 'clsx';
+import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 import Header from './components/layouts/header';
 import Footer from './components/layouts/footer';
-import { Metadata } from 'next';
+import FloatAction from './components/float-action';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -28,6 +29,7 @@ const MainLayout = ({ children }: { children: Readonly<ReactNode> }) => {
           <Content>{children}</Content>
           <Footer />
         </Layout>
+        <FloatAction />
       </App>
     </ConfigProvider>
   );
