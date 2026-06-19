@@ -57,7 +57,9 @@ const Navigation = () => {
   return md ? (
     <Flex align="center" gap="medium">
       <Menu items={menuItems} mode="horizontal" color="primary" selectedKeys={[pathname]} />
-      <Button type="primary">Đăng ký học</Button>
+      <Link href="/dang-ky-hoc">
+        <Button type="primary">Đăng ký học</Button>
+      </Link>
     </Flex>
   ) : (
     <>

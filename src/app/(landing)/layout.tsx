@@ -26,7 +26,7 @@ const MainLayout = ({ children }: { children: Readonly<ReactNode> }) => {
       <App>
         <Layout className={clsx('min-h-dvh!', inter.variable)}>
           <Header />
-          <Content>{children}</Content>
+          <Content className="flex flex-col">{children}</Content>
           <Footer />
         </Layout>
         <FloatAction />

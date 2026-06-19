@@ -22,7 +22,7 @@ const Footer = () => {
                 alt="Tiếng Trung AFú"
                 title="Tiếng Trung AFú"
                 width={200}
-                height={100}
+                height={75}
                 className="h-auto w-50 object-cover"
               />
             </Link>
