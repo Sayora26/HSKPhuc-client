@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui';
-import TextTicker from './text-ticker';
+import TextTicker from '../components/text-ticker';
 import RegisterForm from './register-form';
 import { Button, Col, Row } from 'antd';
 import Image from 'next/image';

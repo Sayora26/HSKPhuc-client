@@ -7,7 +7,7 @@ import { Container } from '@/components/ui';
 
 const Header = () => {
   return (
-    <AntHeader className="sticky top-0 z-50!">
+    <AntHeader className="sticky top-0 z-50! shadow-sm">
       <Container className="h-full!">
         <Flex justify="space-between" align="center" gap={32} className="h-full!">
           <Link href="/" className="shrink-0">
