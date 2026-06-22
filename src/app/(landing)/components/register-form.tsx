@@ -1,6 +1,7 @@
 'use client';
 import { Form, Input, Select } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
+import { CSSProperties } from 'react';
 
 interface IFormValues {
   name: string;
@@ -13,11 +14,20 @@ interface RegisterFormProps {
   children?: React.ReactNode;
 }
 
+const hoverStyle = {
+  '--hsk-color-fill-secondary': '#f5f5f5',
+} as CSSProperties;
+
 const RegisterForm: React.FC<RegisterFormProps> = ({ children }) => {
   return (
     <Form<IFormValues> variant="filled" layout="vertical" noValidate>
       <FormItem<IFormValues> name="name" rules={[{ required: true }]}>
-        <Input placeholder="Họ và tên" autoComplete="name" aria-label="Họ và tên" />
+        <Input
+          placeholder="Họ và tên"
+          autoComplete="name"
+          aria-label="Họ và tên"
+          styles={{ root: hoverStyle }}
+        />
       </FormItem>
       <FormItem<IFormValues>
         name="phone"
@@ -34,10 +44,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ children }) => {
           type="tel"
           autoComplete="tel"
           aria-label="Số điện thoại"
+          styles={{ root: hoverStyle }}
         />
       </FormItem>
       <FormItem<IFormValues> name="email" rules={[{ required: true, type: 'email' }]}>
-        <Input placeholder="Email" type="email" autoComplete="email" aria-label="Email" />
+        <Input
+          placeholder="Email"
+          type="email"
+          autoComplete="email"
+          aria-label="Email"
+          styles={{ root: hoverStyle }}
+        />
       </FormItem>
       <FormItem<IFormValues> name="course" rules={[{ required: true }]}>
         <Select
@@ -47,6 +64,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ children }) => {
           ]}
           placeholder="Khoá học"
           aria-label="Khoá học"
+          styles={{ root: hoverStyle }}
         />
       </FormItem>
       {children}

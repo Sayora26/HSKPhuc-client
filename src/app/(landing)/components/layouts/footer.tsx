@@ -23,7 +23,7 @@ const Footer = () => {
                 title="Tiếng Trung AFú"
                 width={200}
                 height={75}
-                className="h-auto w-50 object-cover"
+                className="w-48 object-contain"
               />
             </Link>
             <p className="mt-4 text-center">Bắt đầu học thông minh hơn, không chỉ chăm chỉ hơn.</p>
