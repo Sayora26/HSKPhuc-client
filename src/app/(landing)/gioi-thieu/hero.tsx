@@ -1,0 +1,154 @@
+'use client';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+const certificateCol1 = [
+  '/img/certifications/cert-1.png',
+  '/img/certifications/cert-2.png',
+  '/img/certifications/cert-3.png',
+  '/img/certifications/cert-4.png',
+];
+
+const certificateCol2 = [
+  '/img/certifications/cert-5.png',
+  '/img/certifications/cert-6.jpg',
+  '/img/certifications/cert-7.jpg',
+  '/img/certifications/cert-8.png',
+];
+
+const certificateCol3 = [
+  '/img/certifications/cert-9.webp',
+  '/img/certifications/cert-10.jpg',
+  '/img/certifications/cert-11.png',
+  '/img/certifications/cert-1.png',
+];
+
+const HeroSection = () => {
+  return (
+    <div className="relative h-150 w-full overflow-hidden">
+      <div className="absolute inset-0 grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+        <div className="relative h-full overflow-hidden">
+          <motion.div
+            animate={{ y: ['0%', '-50%'] }}
+            transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
+            className="flex flex-col gap-6"
+          >
+            {[...certificateCol1, ...certificateCol1].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt="Certificate"
+                width={200}
+                height={300}
+                className="w-full object-cover opacity-60"
+              />
+            ))}
+          </motion.div>
+        </div>
+        <div className="relative h-full overflow-hidden">
+          <motion.div
+            animate={{ y: ['-50%', '0%'] }}
+            transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
+            className="flex flex-col gap-6"
+          >
+            {[...certificateCol2, ...certificateCol2].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt="Certificate"
+                width={200}
+                height={300}
+                className="w-full object-cover opacity-60"
+              />
+            ))}
+          </motion.div>
+        </div>
+        <div className="relative h-full overflow-hidden">
+          <motion.div
+            animate={{ y: ['0%', '-50%'] }}
+            transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
+            className="flex flex-col gap-6"
+          >
+            {[...certificateCol3, ...certificateCol3].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt="Certificate"
+                width={200}
+                height={300}
+                className="w-full object-cover opacity-60"
+              />
+            ))}
+          </motion.div>
+        </div>
+        <div className="relative h-full overflow-hidden">
+          <motion.div
+            animate={{ y: ['0%', '-50%'] }}
+            transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
+            className="flex flex-col gap-6"
+          >
+            {[...certificateCol1, ...certificateCol1].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt="Certificate"
+                width={200}
+                height={300}
+                className="w-full object-cover opacity-60"
+              />
+            ))}
+          </motion.div>
+        </div>
+        <div className="relative h-full overflow-hidden">
+          <motion.div
+            animate={{ y: ['-50%', '0%'] }}
+            transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
+            className="flex flex-col gap-6"
+          >
+            {[...certificateCol2, ...certificateCol2].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt="Certificate"
+                width={200}
+                height={300}
+                className="w-full object-cover opacity-60"
+              />
+            ))}
+          </motion.div>
+        </div>
+        <div className="relative h-full overflow-hidden">
+          <motion.div
+            animate={{ y: ['0%', '-50%'] }}
+            transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
+            className="flex flex-col gap-6"
+          >
+            {[...certificateCol3, ...certificateCol3].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt="Certificate"
+                width={200}
+                height={300}
+                className="w-full object-cover opacity-60"
+              />
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-end">
+        <Image
+          src="/img/thay-phuc.png"
+          alt="Thầy Phúc"
+          width={400}
+          height={400}
+          className="w-60 object-contain object-bottom"
+          priority
+        />
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;
