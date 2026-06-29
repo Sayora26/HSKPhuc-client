@@ -1,5 +1,6 @@
 'use client';
 import { Container } from '@/components/ui';
+import { LINKS } from '@/config/routes';
 import Icon from '@ant-design/icons';
 import { Button, Col, Grid, Row } from 'antd';
 import { Footer as AntFooter } from 'antd/es/layout/layout';
@@ -82,7 +83,7 @@ const Footer = () => {
             <h5 className="mb-4 text-base font-bold">Theo dõi tôi</h5>
             <div className="flex flex-col gap-2">
               <div className="flex gap-2 not-md:justify-center">
-                <Link href="#" target="_blank" rel="noopener noreferrer">
+                <Link href={LINKS.FACEBOOK} target="_blank" rel="noopener noreferrer">
                   <Button
                     icon={<Icon component={FaFacebookF} />}
                     style={
@@ -98,7 +99,7 @@ const Footer = () => {
                     className="transition-transform hover:-translate-y-1.5"
                   />
                 </Link>
-                <Link href="#" target="_blank" rel="noopener noreferrer">
+                <Link href={LINKS.TIKTOK} target="_blank" rel="noopener noreferrer">
                   <Button
                     icon={<Icon component={FaTiktok} />}
                     style={
@@ -114,7 +115,7 @@ const Footer = () => {
                     className="transition-transform hover:-translate-y-1.5"
                   />
                 </Link>
-                <Link href="#" target="_blank" rel="noopener noreferrer">
+                <Link href={LINKS.YOUTUBE} target="_blank" rel="noopener noreferrer">
                   <Button
                     icon={<Icon component={FaYoutube} />}
                     style={

@@ -81,9 +81,9 @@ const HeroSection = () => {
             ))}
           </motion.div>
         </div>
-        <div className="relative h-full overflow-hidden">
+        <div className="relative h-full overflow-hidden not-sm:hidden">
           <motion.div
-            animate={{ y: ['0%', '-50%'] }}
+            animate={{ y: ['-50%', '0%'] }}
             transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
             className="flex flex-col gap-6"
           >
@@ -99,9 +99,9 @@ const HeroSection = () => {
             ))}
           </motion.div>
         </div>
-        <div className="relative h-full overflow-hidden">
+        <div className="relative h-full overflow-hidden not-md:hidden">
           <motion.div
-            animate={{ y: ['-50%', '0%'] }}
+            animate={{ y: ['0%', '-50%'] }}
             transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
             className="flex flex-col gap-6"
           >
@@ -117,9 +117,9 @@ const HeroSection = () => {
             ))}
           </motion.div>
         </div>
-        <div className="relative h-full overflow-hidden">
+        <div className="relative h-full overflow-hidden not-lg:hidden">
           <motion.div
-            animate={{ y: ['0%', '-50%'] }}
+            animate={{ y: ['-50%', '0%'] }}
             transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
             className="flex flex-col gap-6"
           >
