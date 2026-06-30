@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui';
 import TextTicker from '../components/text-ticker';
 import HeroSection from './hero';
+import TeachingMethod from './teaching-method';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -12,9 +13,16 @@ const About = () => {
   return (
     <>
       <TextTicker />
-      <Container className="py-8" Component="section">
-        <HeroSection />
-      </Container>
+      <div className="bg-[#f5f5f5]">
+        <Container Component="section">
+          <HeroSection />
+        </Container>
+      </div>
+      <section className="bg-linear-to-t from-[#fff4dd] to-white">
+        <Container className="py-8">
+          <TeachingMethod />
+        </Container>
+      </section>
     </>
   );
 };

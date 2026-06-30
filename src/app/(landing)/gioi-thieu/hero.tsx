@@ -26,7 +26,7 @@ const certificateCol3 = [
 const HeroSection = () => {
   return (
     <div className="relative h-150 w-full overflow-hidden">
-      <div className="absolute inset-0 grid grid-cols-3 gap-4 after:absolute after:inset-0 after:bg-linear-to-b after:from-white/50 after:to-transparent sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+      <div className="absolute inset-0 grid grid-cols-3 gap-4 py-8 after:absolute after:inset-0 after:bg-linear-to-b after:from-[#f5f5f5] after:to-transparent sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
         <div className="relative h-full overflow-hidden">
           <motion.div
             animate={{ y: ['0%', '-50%'] }}
@@ -137,7 +137,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="relative z-10 flex h-full w-full items-end justify-center after:absolute after:inset-0 after:bg-linear-to-t after:from-white/50 after:to-transparent">
+      <div className="relative z-10 flex h-full w-full items-end justify-center">
         <Image
           src="/img/thay-phuc.png"
           alt="Thầy Phúc"
@@ -148,11 +148,11 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute bottom-8 left-0 z-20 flex w-full items-end justify-center px-6">
-        <h2 className="text-primary text-center text-3xl font-bold tracking-wide uppercase">
+      <div className="absolute bottom-0 left-0 z-20 flex h-50 w-full items-end justify-center bg-linear-to-t from-[#f5f5f5] to-transparent px-6 pb-4">
+        <h1 className="text-primary text-center text-3xl font-bold tracking-wide uppercase">
           Đồng hành với hơn <span className="text-secondary">100</span> học viên đạt được mục tiêu
           HSK
-        </h2>
+        </h1>
       </div>
     </div>
   );
