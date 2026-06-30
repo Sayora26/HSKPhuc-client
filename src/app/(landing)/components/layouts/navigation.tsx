@@ -47,14 +47,22 @@ const menuItems: ItemType<MenuItemType>[] = [
       </Link>
     ),
   },
+  {
+    key: '/tu-hoc',
+    label: (
+      <Link href="/tu-hoc" className="font-semibold">
+        Tự học
+      </Link>
+    ),
+  },
 ];
 
 const Navigation = () => {
-  const { md } = Grid.useBreakpoint();
+  const { lg } = Grid.useBreakpoint();
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  return md ? (
+  return lg ? (
     <Flex align="center" gap="medium">
       <Menu items={menuItems} mode="horizontal" color="primary" selectedKeys={[pathname]} />
       <Link href="/dang-ky-hoc">
