@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   referrer: 'origin-when-cross-origin',
   creator: 'Sayora',
   publisher: 'Vercel',
+  authors: [{ name: 'Sayora', url: 'https://github.com/Sayora26' }],
 
   keywords: [
     'Tiếng Trung AFú',
