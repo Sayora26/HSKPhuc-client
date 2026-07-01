@@ -1,7 +1,7 @@
 import { Container } from '@/components/ui';
 import { Button, Col, Row } from 'antd';
 import Image from 'next/image';
-import RegisterForm from '../(home)/register-form';
+import RegisterForm from '../components/register-form';
 import TextTicker from '../components/text-ticker';
 
 const RegisterStudy = () => {

@@ -1,7 +1,7 @@
 'use client';
 import { Button, Modal, Radio, RadioGroupProps } from 'antd';
 import { useState } from 'react';
-import RegisterForm from './register-form';
+import RegisterForm from '../components/register-form';
 
 const options: RadioGroupProps['options'] = [
   {
