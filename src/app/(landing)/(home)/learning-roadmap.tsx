@@ -79,7 +79,7 @@ const LearningRoadmap = () => {
           Không có một lộ trình chung cho tất cả. Hãy bắt đầu hành trình chinh phục HSK với kế hoạch
           học được xây dựng riêng cho bạn.
         </p>
-        <RegisterForm>
+        <RegisterForm onAfterFinish={() => setOpen(false)}>
           <div className="text-center">
             <Button variant="solid" htmlType="submit" color="yellow" className="mt-4">
               Nhận tư vấn lộ trình
