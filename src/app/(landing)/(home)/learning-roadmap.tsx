@@ -6,32 +6,34 @@ import RegisterForm from '../components/register-form';
 const options: RadioGroupProps['options'] = [
   {
     label: '0 → HSK 1',
-    value: '0-1',
+    value: '0 → HSK 1',
   },
   {
     label: 'HSK 1 → HSK 2',
-    value: '1-2',
+    value: 'HSK 1 → HSK 2',
   },
   {
     label: 'HSK 2 → HSK 3',
-    value: '2-3',
+    value: 'HSK 2 → HSK 3',
   },
   {
     label: 'HSK 3 → HSK 4',
-    value: '3-4',
+    value: 'HSK 3 → HSK 4',
   },
   {
     label: 'HSK 4 → HSK 5',
-    value: '4-5',
+    value: 'HSK 4 → HSK 5',
   },
   {
     label: 'HSK 5 → HSK 6',
-    value: '5-6',
+    value: 'HSK 5 → HSK 6',
   },
 ];
 
 const LearningRoadmap = () => {
   const [open, setOpen] = useState(false);
+  const [selectedCurrentLevel, setSelectedCurrentLevel] = useState<string>();
+  const [selectedTargetLevel, setSelectedTargetLevel] = useState<string>();
 
   return (
     <>
@@ -49,6 +51,8 @@ const LearningRoadmap = () => {
           optionType="button"
           buttonStyle="solid"
           className="inline-flex! flex-wrap justify-center gap-4 *:w-40 *:rounded-xl *:text-center *:font-semibold"
+          value={selectedCurrentLevel}
+          onChange={(e) => setSelectedCurrentLevel(e.target.value)}
         />
         <h3 className="text-xl font-bold lg:text-2xl">Mục tiêu mong muốn của bạn</h3>
         <Radio.Group
@@ -56,6 +60,8 @@ const LearningRoadmap = () => {
           optionType="button"
           buttonStyle="solid"
           className="inline-flex! flex-wrap justify-center gap-4 *:w-40 *:rounded-xl *:text-center *:font-semibold"
+          value={selectedTargetLevel}
+          onChange={(e) => setSelectedTargetLevel(e.target.value)}
         />
         <Button
           variant="solid"
@@ -79,7 +85,13 @@ const LearningRoadmap = () => {
           Không có một lộ trình chung cho tất cả. Hãy bắt đầu hành trình chinh phục HSK với kế hoạch
           học được xây dựng riêng cho bạn.
         </p>
-        <RegisterForm onAfterFinish={() => setOpen(false)}>
+        <RegisterForm
+          moreInfo={[
+            { label: 'Trình độ hiện tại', value: selectedCurrentLevel || '' },
+            { label: 'Mục tiêu mong muốn', value: selectedTargetLevel || '' },
+          ]}
+          onAfterFinish={() => setOpen(false)}
+        >
           <div className="text-center">
             <Button variant="solid" htmlType="submit" color="yellow" className="mt-4">
               Nhận tư vấn lộ trình

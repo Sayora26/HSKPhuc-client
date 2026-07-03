@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, phone, email, course } = body;
+    const { name, phone, email, course, moreInfo = [] } = body;
 
     if (!name || !phone || !email || !course) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -50,6 +50,16 @@ export async function POST(request: Request) {
             <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Khóa học quan tâm:</td>
             <td style="padding: 10px; border: 1px solid #ddd; color: #aa8845; font-weight: bold;">${course}</td>
           </tr>
+          ${moreInfo
+            .map(
+              (info: { label: string; value: string | number }, index: number) => `
+            <tr ${index % 2 === 0 ? 'style="background-color: #f9f8f6;"' : ''}>
+              <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">${info.label}:</td>
+              <td style="padding: 10px; border: 1px solid #ddd;">${info.value}</td>
+            </tr>
+          `,
+            )
+            .join('')}
         </tbody>
       </table>
       <p><em>Hệ thống thông báo tự động từ Website Tiếng Trung Afú.</em></p>

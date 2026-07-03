@@ -12,6 +12,10 @@ interface IFormValues {
 
 interface RegisterFormProps {
   children?: React.ReactNode;
+  moreInfo?: {
+    label: string;
+    value: string | number;
+  }[];
   onAfterFinish?: () => void;
 }
 
@@ -19,7 +23,7 @@ const hoverStyle = {
   '--hsk-color-fill-secondary': '#f5f5f5',
 } as CSSProperties;
 
-const RegisterForm: React.FC<RegisterFormProps> = ({ children, onAfterFinish }) => {
+const RegisterForm: React.FC<RegisterFormProps> = ({ children, moreInfo, onAfterFinish }) => {
   const [form] = Form.useForm<IFormValues>();
   const { notification } = App.useApp();
 
@@ -28,7 +32,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ children, onAfterFinish }) 
       await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, moreInfo }),
       });
       notification.success({
         title: 'Gửi thông tin thành công',
