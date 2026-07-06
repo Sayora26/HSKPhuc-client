@@ -1,6 +1,7 @@
 export { default as AwardCheck } from './award-check';
 export { default as BookSearch } from './book-search';
 export { default as BrainGear } from './brain-gear';
+export { default as Curriculum } from './curriculum';
 export { default as Flashcards } from './flashcards';
 export { default as GraduationCap } from './graduation-cap';
 export { default as LikeStar } from './like-star';

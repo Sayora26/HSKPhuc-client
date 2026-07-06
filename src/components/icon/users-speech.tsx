@@ -17,7 +17,7 @@ const UsersSpeechSvg = () => (
       <clipPath id="d8f92326f7">
         <path
           d="M 0 0.0390625 L 114.757812 0.0390625 L 114.757812 126.722656 L 0 126.722656 Z M 0 0.0390625 "
-          clip-rule="nonzero"
+          clipRule="nonzero"
         />
       </clipPath>
     </defs>
