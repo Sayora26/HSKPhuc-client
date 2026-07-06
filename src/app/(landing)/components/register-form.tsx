@@ -1,5 +1,5 @@
 'use client';
-import { Form, Input, Select } from 'antd';
+import { App, Form, Input, Select } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { CSSProperties } from 'react';
 
@@ -12,15 +12,54 @@ interface IFormValues {
 
 interface RegisterFormProps {
   children?: React.ReactNode;
+  moreInfo?: {
+    label: string;
+    value: string | number;
+  }[];
+  onAfterFinish?: () => void;
 }
 
 const hoverStyle = {
   '--hsk-color-fill-secondary': '#f5f5f5',
 } as CSSProperties;
 
-const RegisterForm: React.FC<RegisterFormProps> = ({ children }) => {
+const RegisterForm: React.FC<RegisterFormProps> = ({ children, moreInfo, onAfterFinish }) => {
+  const [form] = Form.useForm<IFormValues>();
+  const { notification } = App.useApp();
+
+  const handleFinish = async (values: IFormValues) => {
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...values, moreInfo }),
+      });
+      notification.success({
+        title: 'Gửi thông tin thành công',
+        description:
+          'Thầy Phúc sẽ liên hệ với bạn sớm nhất có thể. Cảm ơn bạn đã quan tâm đến khóa học.',
+      });
+      form.resetFields();
+      if (onAfterFinish) {
+        onAfterFinish();
+      }
+    } catch (error) {
+      console.log(error);
+      notification.error({
+        title: 'Gửi thông tin thất bại',
+        description: 'Đã xảy ra lỗi, vui lòng thử lại sau.',
+      });
+    }
+  };
+
   return (
-    <Form<IFormValues> variant="filled" layout="vertical" noValidate>
+    <Form<IFormValues>
+      form={form}
+      variant="filled"
+      layout="vertical"
+      noValidate
+      onFinish={handleFinish}
+    >
       <FormItem<IFormValues> name="name" rules={[{ required: true }]}>
         <Input
           placeholder="Họ và tên"
@@ -59,8 +98,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ children }) => {
       <FormItem<IFormValues> name="course" rules={[{ required: true }]}>
         <Select
           options={[
-            { label: 'Khoá đại trà online', value: 'Đại trà' },
-            { label: 'Khoá VIP 1 kèm 1', value: 'VIP' },
+            { label: 'Khoá đại trà online', value: 'Khoá đại trà online' },
+            { label: 'Khoá VIP 1 kèm 1', value: 'Khoá VIP 1 kèm 1' },
           ]}
           placeholder="Khoá học"
           aria-label="Khoá học"
