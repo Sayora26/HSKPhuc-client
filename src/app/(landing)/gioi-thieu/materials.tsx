@@ -1,13 +1,14 @@
 'use client';
 import { Curriculum } from '@/components/icon';
 import { Col, Row } from 'antd';
+import Image from 'next/image';
 
 const Materials = () => {
   return (
     <>
       <Row gutter={24}>
         <Col span={24} md={16} lg={12}>
-          <h2 className="text-primary text-3xl font-bold tracking-wide uppercase">
+          <h2 className="text-primary mb-2 text-3xl font-bold tracking-wide uppercase">
             CHƯƠNG TRÌNH DẠY TỔNG HỢP TỪ NHIỀU GIÁO TRÌNH KHÁC NHAU
           </h2>
           <p className="text-base">
@@ -23,29 +24,44 @@ const Materials = () => {
       </Row>
 
       <Row gutter={[24, 24]} className="mt-8">
-        <Col span={24} md={12}>
-          <div className="border-primary flex h-full gap-4 rounded-2xl border px-6 py-4">
-            <div>1</div>
-            <div>
-              <h3 className="text-primary text-xl font-semibold">
-                Ghi nhớ hán tự và bộ thủ qua Flashcards
-              </h3>
+        <Col span={24} lg={12}>
+          <div className="border-primary flex h-full items-center gap-4 rounded-2xl border px-6 py-4">
+            <div className="basis-1/3">
+              <Image
+                src="/img/materials/curriculum1.png"
+                alt="Curriculum 1"
+                width={200}
+                height={200}
+                className="w-full"
+              />
+            </div>
+            <div className="basis-2/3">
+              <h3 className="text-primary text-xl font-semibold">Giáo trình Hán Ngữ</h3>
               <p className="text-base">
-                Nhận dạng mặt chữ là điều ưu tiên trong giai đoạn đầu. Việc ghi nhớ Hán tự trở nên
-                dễ dàng hơn thông qua cách chiết tự kết hợp flashcard được giáo viên soạn sẵn của
-                từng bài.
+                Phù hợp để học tiếng Trung giai đoạn đầu. Nhiều chủ đề giao tiếp ứng dụng phổ biến
+                trong đời sống. Kết hợp với tài liệu luyện nghe đi kèm. Bộ giáo trình giúp học viên
+                nâng cao kỹ năng nghe-nói trong 6 tháng đầu tiên.
               </p>
             </div>
           </div>
         </Col>
-        <Col span={24} md={12}>
-          <div className="border-primary flex h-full gap-4 rounded-2xl border px-6 py-4">
-            <div>2</div>
-            <div>
-              <h3 className="text-primary text-xl font-semibold">Luyện phản xạ bằng tiếng Trung</h3>
+        <Col span={24} lg={12}>
+          <div className="border-primary flex h-full items-center gap-4 rounded-2xl border px-6 py-4">
+            <div className="basis-1/3">
+              <Image
+                src="/img/materials/curriculum2.png"
+                alt="Curriculum 2"
+                width={200}
+                height={200}
+                className="w-full"
+              />
+            </div>
+            <div className="basis-2/3">
+              <h3 className="text-primary text-xl font-semibold">Giáo trình chuẩn HSK</h3>
               <p className="text-base">
-                Học viên không học bị động mà được tương tác trực tiếp trong giờ học, từ đó nâng cao
-                phản xạ bằng tiếng Trung, không tư duy thông qua tiếng Việt.
+                Phù hợp để luyện thi và học nâng cao. Kết hợp sách bài tập, bộ giáo trình có nhiều
+                từ vựng bám sát yêu cầu từng trình độ, dạng bài tập mô phỏng theo đề thi thật giúp
+                học viên làm quen cấu trúc đề.
               </p>
             </div>
           </div>

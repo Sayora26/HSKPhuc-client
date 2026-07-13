@@ -5,6 +5,7 @@ import TeachingMethod from './teaching-method';
 import { Metadata } from 'next';
 import Accomplishments from './accomplishments';
 import Materials from './materials';
+import Tools from './tools';
 
 export const metadata: Metadata = {
   title: 'Giới thiệu',
@@ -30,6 +31,9 @@ const About = () => {
       </section>
       <Container className="py-8" Component="section">
         <Materials />
+      </Container>
+      <Container className="py-8" Component="section">
+        <Tools />
       </Container>
     </>
   );

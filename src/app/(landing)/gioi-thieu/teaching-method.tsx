@@ -13,7 +13,7 @@ const TeachingMethod = () => {
     <div>
       <Row gutter={24}>
         <Col span={24} md={16} lg={12}>
-          <h2 className="text-primary text-3xl font-bold tracking-wide uppercase">
+          <h2 className="text-primary mb-2 text-3xl font-bold tracking-wide uppercase">
             Phương pháp dạy phù hợp cho từng trình độ
           </h2>
           <p className="text-base">
