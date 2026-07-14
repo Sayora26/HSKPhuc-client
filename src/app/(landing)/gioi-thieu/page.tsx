@@ -3,6 +3,9 @@ import TextTicker from '../components/text-ticker';
 import HeroSection from './hero';
 import TeachingMethod from './teaching-method';
 import { Metadata } from 'next';
+import Accomplishments from './accomplishments';
+import Materials from './materials';
+import Tools from './tools';
 
 export const metadata: Metadata = {
   title: 'Giới thiệu',
@@ -18,11 +21,20 @@ const About = () => {
           <HeroSection />
         </Container>
       </div>
+      <Container className="py-8" Component="section">
+        <Accomplishments />
+      </Container>
       <section className="bg-linear-to-t from-[#fff4dd] to-white">
         <Container className="py-8">
           <TeachingMethod />
         </Container>
       </section>
+      <Container className="py-8" Component="section">
+        <Materials />
+      </Container>
+      <Container className="py-8" Component="section">
+        <Tools />
+      </Container>
     </>
   );
 };

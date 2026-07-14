@@ -1,4 +1,5 @@
-import Icon, { CustomIconComponentProps } from '@ant-design/icons/es/components/Icon';
+import Icon from '@ant-design/icons';
+import { CustomIconComponentProps } from '@ant-design/icons/es/components/Icon';
 
 const GraduationCapSvg = () => {
   return (

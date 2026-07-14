@@ -1,5 +1,13 @@
 export { default as AwardCheck } from './award-check';
+export { default as BookSearch } from './book-search';
 export { default as BrainGear } from './brain-gear';
+export { default as Curriculum } from './curriculum';
+export { default as Flashcards } from './flashcards';
 export { default as GraduationCap } from './graduation-cap';
 export { default as LikeStar } from './like-star';
+export { default as StudyTools } from './study-tools';
+export { default as UsersSpeech } from './users-speech';
+export { default as VibrateHeadphone } from './vibrate-headphone';
+export { default as Wayground } from './wayground';
+export { default as WebsiteBrowser } from './website-browser';
 export { default as Zalo } from './zalo';
