@@ -65,7 +65,13 @@ const Navigation = () => {
 
   return lg ? (
     <Flex align="center" gap="medium">
-      <Menu items={menuItems} mode="horizontal" color="primary" selectedKeys={[pathname]} />
+      <Menu
+        items={menuItems}
+        mode="horizontal"
+        color="primary"
+        selectedKeys={[pathname]}
+        className="w-120 justify-end"
+      />
       <Link href="/dang-ky-hoc">
         <Button type="primary">Đăng ký học</Button>
       </Link>
@@ -82,7 +88,7 @@ const Navigation = () => {
           </div>
         }
         classNames={{ body: 'p-0!' }}
-        size="100%"
+        size="480"
       >
         <Menu
           items={menuItems}

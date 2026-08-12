@@ -41,9 +41,11 @@ const Home = () => {
             <RegisterForm>
               <div className="flex flex-col-reverse justify-end gap-4 sm:flex-row">
                 <Link href="/gioi-thieu" passHref tabIndex={-1}>
-                  <Button block>Theo dõi Thầy Phúc</Button>
+                  <Button size="large" block>
+                    Theo dõi Thầy Phúc
+                  </Button>
                 </Link>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" size="large">
                   Nhận tư vấn
                 </Button>
               </div>

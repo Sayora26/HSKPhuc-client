@@ -66,6 +66,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ children, moreInfo, onAfter
           autoComplete="name"
           aria-label="Họ và tên"
           styles={{ root: hoverStyle }}
+          size="large"
         />
       </FormItem>
       <FormItem<IFormValues>
@@ -84,6 +85,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ children, moreInfo, onAfter
           autoComplete="tel"
           aria-label="Số điện thoại"
           styles={{ root: hoverStyle }}
+          size="large"
         />
       </FormItem>
       <FormItem<IFormValues> name="email" rules={[{ required: true, type: 'email' }]}>
@@ -93,6 +95,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ children, moreInfo, onAfter
           autoComplete="email"
           aria-label="Email"
           styles={{ root: hoverStyle }}
+          size="large"
         />
       </FormItem>
       <FormItem<IFormValues> name="course" rules={[{ required: true }]}>
@@ -104,6 +107,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ children, moreInfo, onAfter
           placeholder="Khoá học"
           aria-label="Khoá học"
           styles={{ root: hoverStyle }}
+          size="large"
         />
       </FormItem>
       {children}

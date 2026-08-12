@@ -1,6 +1,6 @@
 'use client';
 import { Container } from '@/components/ui';
-import { Card, Steps, StepsProps } from 'antd';
+import { Card, Col, Grid, Row, Steps, StepsProps } from 'antd';
 import { useState } from 'react';
 
 const items: StepsProps['items'] = [
@@ -101,32 +101,33 @@ const contents = [
 
 const LearningStep = () => {
   const [step, setStep] = useState(0);
+  const { md } = Grid.useBreakpoint();
 
   return (
     <div className="bg-linear-90 from-[#a9bfff] via-[#f3f9ff] to-[#fffcdd]">
       <Container className="py-8">
         <Card variant="borderless">
-          <h2 className="text-primary mb-6 text-center text-3xl font-bold">
+          <h2 className="text-primary white mb-6 text-center text-3xl font-bold">
             Lộ trình học chi tiết
           </h2>
           <Steps
             items={items}
             type="dot"
-            responsive
+            orientation={md ? 'horizontal' : 'vertical'}
             classNames={{
               itemSection:
                 'transition-all duration-250 mx-4 py-4 px-2 rounded-2xl in-[.ant-steps-item-active]:bg-secondary',
-              itemWrapper: 'flex-col-reverse!',
+              itemWrapper: 'md:flex-col-reverse! max-md:items-center!',
               itemTitle: 'font-semibold in-[.ant-steps-item-active]:text-white!',
-              itemSubtitle: 'in-[.ant-steps-item-active]:text-white! order-first',
+              itemSubtitle: 'in-[.ant-steps-item-active]:text-white! md:order-first',
               itemContent: 'in-[.ant-steps-item-active]:text-white!',
               itemRail: 'bottom-1.5! top-auto!',
             }}
             current={step}
             onChange={setStep}
           />
-          <div className="mt-4 grid grid-cols-8 gap-6 px-4">
-            <div className="col-span-3">
+          <Row gutter={[16, 16]} className="mt-6 md:px-4">
+            <Col md={9} span={24}>
               <div className="h-full rounded-2xl border p-4">
                 <h4 className="text-lg font-semibold">Đối tượng học:</h4>
                 <ul className="mt-2 list-disc pl-4 text-base">
@@ -141,8 +142,8 @@ const LearningStep = () => {
                   ))}
                 </ul>
               </div>
-            </div>
-            <div className="col-span-5">
+            </Col>
+            <Col md={15} span={24}>
               <div className="h-full rounded-2xl border p-4">
                 <h4 className="text-lg font-semibold">Mục tiêu khóa học:</h4>
                 <ul className="mt-2 list-disc pl-4 text-base">
@@ -151,8 +152,8 @@ const LearningStep = () => {
                   ))}
                 </ul>
               </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </Card>
       </Container>
     </div>
