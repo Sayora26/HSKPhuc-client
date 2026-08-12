@@ -3,6 +3,7 @@ import { merge } from 'lodash';
 
 const variables = {
   colorPrimary: '#11264f',
+  colorYellow: '#ae8845',
 };
 
 const baseTheme: ThemeConfig = {
@@ -58,6 +59,12 @@ const landingSpecificTheme: ThemeConfig = {
       buttonSolidCheckedHoverBg: '#ba9f68',
       buttonSolidCheckedActiveBg: '#87642f',
       buttonSolidCheckedColor: '#ffffff',
+    },
+    Steps: {
+      colorPrimary: variables.colorYellow,
+      colorPrimaryHover: '#ba9f68',
+      dotSize: 18,
+      dotCurrentSize: 18,
     },
   },
 };

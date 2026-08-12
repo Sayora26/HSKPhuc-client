@@ -1,7 +1,8 @@
 import { Container } from '@/components/ui';
 import { Metadata } from 'next';
 import TextTicker from '../../components/text-ticker';
-import CourseCard from './CourseCard';
+import CourseCard from './course-card';
+import LearningStep from './learning-step';
 
 export const metadata: Metadata = {
   title: 'Khóa đại trà online',
@@ -63,6 +64,7 @@ const MassCourse = () => {
           ))}
         </div>
       </Container>
+      <LearningStep />
     </div>
   );
 };
