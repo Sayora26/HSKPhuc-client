@@ -93,7 +93,7 @@ const LearningRoadmap = () => {
           onAfterFinish={() => setOpen(false)}
         >
           <div className="text-center">
-            <Button variant="solid" htmlType="submit" color="yellow" className="mt-4">
+            <Button variant="solid" htmlType="submit" color="yellow" className="mt-4" size="large">
               Nhận tư vấn lộ trình
             </Button>
           </div>

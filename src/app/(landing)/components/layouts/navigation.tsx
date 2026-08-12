@@ -1,4 +1,5 @@
 'use client';
+import { PATHS } from '@/config/routes';
 import { MenuOutlined } from '@ant-design/icons';
 import { Button, Drawer, Flex, Grid, Menu } from 'antd';
 import { ItemType, MenuItemType } from 'antd/es/menu/interface';
@@ -9,17 +10,17 @@ import { useState } from 'react';
 
 const menuItems: ItemType<MenuItemType>[] = [
   {
-    key: '/',
+    key: PATHS.HOME,
     label: (
-      <Link href="/" className="font-semibold">
+      <Link href={PATHS.HOME} className="font-semibold">
         Trang chủ
       </Link>
     ),
   },
   {
-    key: '/gioi-thieu',
+    key: PATHS.INTRODUCTION,
     label: (
-      <Link href="/gioi-thieu" className="font-semibold">
+      <Link href={PATHS.INTRODUCTION} className="font-semibold">
         Giới thiệu
       </Link>
     ),
@@ -29,32 +30,32 @@ const menuItems: ItemType<MenuItemType>[] = [
     label: <div className="font-semibold">Khóa học</div>,
     children: [
       {
-        label: <Link href="#">Khóa đại trà online</Link>,
-        key: '/khoa-hoc/1',
+        label: <Link href={PATHS.COURSES.MASS_COURSE}>Khóa đại trà online</Link>,
+        key: PATHS.COURSES.MASS_COURSE,
         title: 'Khóa đại trà online',
       },
       {
-        label: 'Khóa VIP 1 kèm 1',
-        key: '/khoa-hoc/2',
+        label: <Link href={PATHS.COURSES.VIP_COURSE}>Khóa VIP 1 kèm 1</Link>,
+        key: PATHS.COURSES.VIP_COURSE,
       },
     ],
   },
   {
-    key: '/danh-gia',
+    key: PATHS.REVIEWS,
     label: (
-      <Link href="/danh-gia" className="font-semibold">
+      <Link href={PATHS.REVIEWS} className="font-semibold">
         Đánh giá
       </Link>
     ),
   },
-  {
-    key: '/tu-hoc',
-    label: (
-      <Link href="/tu-hoc" className="font-semibold">
-        Tự học
-      </Link>
-    ),
-  },
+  // {
+  //   key: '/tu-hoc',
+  //   label: (
+  //     <Link href="/tu-hoc" className="font-semibold">
+  //       Tự học
+  //     </Link>
+  //   ),
+  // },
 ];
 
 const Navigation = () => {
@@ -64,7 +65,13 @@ const Navigation = () => {
 
   return lg ? (
     <Flex align="center" gap="medium">
-      <Menu items={menuItems} mode="horizontal" color="primary" selectedKeys={[pathname]} />
+      <Menu
+        items={menuItems}
+        mode="horizontal"
+        color="primary"
+        selectedKeys={[pathname]}
+        className="w-120 justify-end"
+      />
       <Link href="/dang-ky-hoc">
         <Button type="primary">Đăng ký học</Button>
       </Link>
@@ -81,7 +88,7 @@ const Navigation = () => {
           </div>
         }
         classNames={{ body: 'p-0!' }}
-        size="100%"
+        size="480"
       >
         <Menu
           items={menuItems}

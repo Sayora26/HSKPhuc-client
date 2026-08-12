@@ -8,7 +8,7 @@ interface TextTickerProps {
 
 const TextTicker = ({
   texts = [
-    '🎯 “Đang tuyển sinh lớp online tháng 7“',
+    '🎯 “Đang tuyển sinh lớp online tháng 8“',
     '🎉 “Quà Tặng Hấp Dẫn - Đăng Ký Ngay”',
     '💥 “Hỗ Trợ Học Thử Miễn Phí - Test Đầu Vào Miễn Phí”',
   ],
