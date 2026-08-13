@@ -1,20 +1,13 @@
 'use client';
+import { formatDate } from '@/lib/dayjs';
+import { Course } from '@/types';
 import { Button, Modal } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
 import RegisterForm from '../../components/register-form';
-import { formatDate } from '@/lib/dayjs';
 
 interface CourseCardProps {
-  data: {
-    image: string;
-    name: string;
-    target: string;
-    schedule: string;
-    startDate: Date;
-    maxStudents: number;
-    currentStudents: number;
-  };
+  data: Course;
 }
 
 const CourseCard = ({ data }: CourseCardProps) => {

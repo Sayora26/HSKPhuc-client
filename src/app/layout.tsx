@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import clsx from 'clsx';
 
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="vi" className={clsx('mdl-js', inter.variable)}>
       <body cz-shortcut-listen="true">
         <AntdRegistry>{children}</AntdRegistry>
+        <Analytics />
       </body>
     </html>
   );
