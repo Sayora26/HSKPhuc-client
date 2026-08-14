@@ -69,7 +69,7 @@ const CourseCard = ({ data }: CourseCardProps) => {
         <p className="mx-auto mb-8 text-center">Giáo viên sẽ liên hệ sắp xếp lớp ngay</p>
         <RegisterForm
           onAfterFinish={() => setOpen(false)}
-          moreInfo={[{ label: 'Khóa học', value: data.name }]}
+          moreInfo={[{ label: 'Khóa đại trà', value: data.name }]}
         >
           <div className="text-center">
             <Button variant="solid" htmlType="submit" type="primary" className="mt-4">

@@ -87,7 +87,7 @@
       }
     }
 
-    &.ant-form-item {
+    &.ant-form-item-label {
       @apply font-semibold;
     }
   }
