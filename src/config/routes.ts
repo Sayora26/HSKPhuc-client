@@ -15,4 +15,10 @@ export const PATHS = {
   },
   REVIEWS: '/danh-gia',
   REGISTRATION: '/dang-ky-hoc',
+
+  ADMIN: {
+    DASHBOARD: '/admin',
+    COURSES: '/admin/khoa-hoc',
+    SETTINGS: '/admin/cai-dat',
+  },
 };

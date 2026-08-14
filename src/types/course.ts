@@ -1,5 +1,5 @@
 export interface Course {
-  id?: string;
+  id: string;
   image: string;
   name: string;
   target: string;
@@ -7,4 +7,11 @@ export interface Course {
   startDate: Date;
   maxStudents: number;
   currentStudents: number;
+  order: number;
+  status: CourseStatus;
+}
+
+export enum CourseStatus {
+  Inactive,
+  Active,
 }

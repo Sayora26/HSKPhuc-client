@@ -20,7 +20,7 @@ interface RegisterFormProps {
 }
 
 const hoverStyle = {
-  '--hsk-color-fill-secondary': '#f5f5f5',
+  '--afu-color-fill-secondary': '#f5f5f5',
 } as CSSProperties;
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ children, moreInfo, onAfterFinish }) => {

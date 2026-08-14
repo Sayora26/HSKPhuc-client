@@ -1,6 +1,6 @@
 'use client';
 import { formatDate } from '@/lib/dayjs';
-import { Course } from '@/types';
+import { Course, CourseStatus } from '@/types';
 import { Button, Modal } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -37,13 +37,24 @@ const CourseCard = ({ data }: CourseCardProps) => {
           </li>
         </ul>
         <div className="hidden self-end sm:block">
-          <Button type="primary" size="large" onClick={() => setOpen(true)} disabled>
+          <Button
+            type="primary"
+            size="large"
+            onClick={() => setOpen(true)}
+            disabled={data.status !== CourseStatus.Active}
+          >
             Đăng ký
           </Button>
         </div>
       </div>
       <div className="mt-2 sm:hidden">
-        <Button type="primary" size="large" block onClick={() => setOpen(true)} disabled>
+        <Button
+          type="primary"
+          size="large"
+          block
+          onClick={() => setOpen(true)}
+          disabled={data.status !== CourseStatus.Active}
+        >
           Đăng ký
         </Button>
       </div>
@@ -56,7 +67,10 @@ const CourseCard = ({ data }: CourseCardProps) => {
         destroyOnHidden
       >
         <p className="mx-auto mb-8 text-center">Giáo viên sẽ liên hệ sắp xếp lớp ngay</p>
-        <RegisterForm onAfterFinish={() => setOpen(false)}>
+        <RegisterForm
+          onAfterFinish={() => setOpen(false)}
+          moreInfo={[{ label: 'Khóa học', value: data.name }]}
+        >
           <div className="text-center">
             <Button variant="solid" htmlType="submit" type="primary" className="mt-4">
               Đăng ký khóa học

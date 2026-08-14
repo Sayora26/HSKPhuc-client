@@ -88,8 +88,8 @@ const Footer = () => {
                     icon={<Icon component={FaFacebookF} />}
                     style={
                       {
-                        '--hsk-button-default-bg': 'transparent',
-                        '--hsk-button-default-color': '#ffffff',
+                        '--afu-button-default-bg': 'transparent',
+                        '--afu-button-default-color': '#ffffff',
                       } as CSSProperties
                     }
                     shape="circle"
@@ -104,8 +104,8 @@ const Footer = () => {
                     icon={<Icon component={FaTiktok} />}
                     style={
                       {
-                        '--hsk-button-default-bg': 'transparent',
-                        '--hsk-button-default-color': '#ffffff',
+                        '--afu-button-default-bg': 'transparent',
+                        '--afu-button-default-color': '#ffffff',
                       } as CSSProperties
                     }
                     shape="circle"
@@ -120,8 +120,8 @@ const Footer = () => {
                     icon={<Icon component={FaYoutube} />}
                     style={
                       {
-                        '--hsk-button-default-bg': 'transparent',
-                        '--hsk-button-default-color': '#ffffff',
+                        '--afu-button-default-bg': 'transparent',
+                        '--afu-button-default-color': '#ffffff',
                       } as CSSProperties
                     }
                     shape="circle"
