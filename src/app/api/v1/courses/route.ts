@@ -1,9 +1,8 @@
-import { db } from '@/lib/firebase';
+import { createCourse, getPublicCourses, updateCourse } from '@/services/course.service';
 import { Course } from '@/types';
-import { addDoc, collection, doc, getDoc, getDocs, updateDoc } from 'firebase/firestore';
 import { NextResponse } from 'next/server';
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 type CoursePayload = Omit<Course, 'id' | 'startDate'> & {
   startDate: string;
@@ -27,13 +26,7 @@ const isValidCoursePayload = (payload: Partial<CoursePayload>) =>
 
 export const GET = async (): Promise<NextResponse> => {
   try {
-    const snapshot = await getDocs(collection(db, 'courses'));
-    const courses: Course[] = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...(doc.data() as Omit<Course, 'id'>),
-      startDate: doc.data().startDate?.toDate(),
-    }));
-
+    const courses = await getPublicCourses();
     return NextResponse.json(courses);
   } catch {
     return NextResponse.json({ error: 'Failed to fetch courses' }, { status: 500 });
@@ -48,9 +41,9 @@ export const POST = async (request: Request): Promise<NextResponse> => {
       return NextResponse.json({ error: 'Invalid course data' }, { status: 400 });
     }
 
-    const courseRef = await addDoc(collection(db, 'courses'), toCourseData(payload));
+    const id = await createCourse(toCourseData(payload));
 
-    return NextResponse.json({ id: courseRef.id, ...payload }, { status: 201 });
+    return NextResponse.json({ id, ...payload }, { status: 201 });
   } catch {
     return NextResponse.json({ error: 'Failed to create course' }, { status: 500 });
   }
@@ -64,16 +57,9 @@ export const PATCH = async (request: Request): Promise<NextResponse> => {
       return NextResponse.json({ error: 'Invalid course data' }, { status: 400 });
     }
 
-    const courseRef = doc(db, 'courses', id);
-    const existingCourse = await getDoc(courseRef);
+    const updatedCourse = await updateCourse(id, toCourseData(payload));
 
-    if (!existingCourse.exists()) {
-      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
-    }
-
-    await updateDoc(courseRef, toCourseData(payload));
-
-    return NextResponse.json({ id, ...payload });
+    return NextResponse.json(updatedCourse);
   } catch {
     return NextResponse.json({ error: 'Failed to update course' }, { status: 500 });
   }

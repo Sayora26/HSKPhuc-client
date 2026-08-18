@@ -9,10 +9,10 @@ import CourseForm from './course-form';
 import { Button, Form, Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useState } from 'react';
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
 
 const CourseTable = () => {
-  const { data, isLoading, mutate } = useSWR<Course[]>('/api/v1/courses', fetcher);
+  const { data, isLoading, mutate } = useSWRImmutable<Course[]>('/api/v1/courses', fetcher);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selected, setSelected] = useState<Course | undefined>();
   const [form] = Form.useForm<Course>();
@@ -29,7 +29,7 @@ const CourseTable = () => {
 
   const handleFinish = () => {
     setDrawerOpen(false);
-    mutate();
+    mutate(undefined, { revalidate: true });
   };
 
   const columns: ColumnsType<Course> = [

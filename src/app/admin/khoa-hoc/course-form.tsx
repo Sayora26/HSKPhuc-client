@@ -43,6 +43,7 @@ const CourseForm = ({ form, course, onFinish }: CourseFormProps) => {
         maxStudents: course?.maxStudents,
         currentStudents: course?.currentStudents,
         image: course?.image,
+        status: course?.status,
       }}
       onFinish={handleFinish}
     >

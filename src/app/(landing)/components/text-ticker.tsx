@@ -1,19 +1,25 @@
 import { Container } from '@/components/ui';
 import { formatDate } from '@/lib/dayjs';
-import { db } from '@/lib/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { adminDb } from '@/lib/firebase-admin';
+import { unstable_cache } from 'next/cache';
 
-const getTickerTexts = async () => {
-  const snapshot = await getDoc(doc(db, 'site_settings', 'landing'));
-  const data = snapshot.data();
-  return (
-    data?.tickerTexts || [
-      `🎯 “Đang tuyển sinh lớp online tháng ${formatDate(new Date(), 'M')}“`,
-      '🎉 “Quà Tặng Hấp Dẫn - Đăng Ký Ngay”',
-      '💥 “Hỗ Trợ Học Thử Miễn Phí - Test Đầu Vào Miễn Phí”',
-    ]
-  );
-};
+const getTickerTexts = unstable_cache(
+  async () => {
+    const ref = adminDb.collection('site_settings').doc('landing');
+    const snapshot = await ref.get();
+
+    const data = snapshot.data();
+    return (
+      data?.tickerTexts || [
+        `🎯 “Đang tuyển sinh lớp online tháng ${formatDate(new Date(), 'M')}“`,
+        '🎉 “Quà Tặng Hấp Dẫn - Đăng Ký Ngay”',
+        '💥 “Hỗ Trợ Học Thử Miễn Phí - Test Đầu Vào Miễn Phí”',
+      ]
+    );
+  },
+  ['text-ticker'],
+  { revalidate: 3600, tags: ['text-ticker'] },
+);
 
 const TextTicker = async () => {
   const texts = await getTickerTexts();
@@ -27,7 +33,7 @@ const TextTicker = async () => {
           <div className="flex w-max min-w-full flex-row flex-nowrap gap-24" aria-hidden="true">
             <div className="animate-ticker flex gap-24 text-base font-semibold whitespace-nowrap">
               {[...texts, ...texts].map((text, index) => (
-                <span key={index} className="whitespace-pre">
+                <span key={`${text}-${index}`} className="whitespace-pre">
                   {text}
                 </span>
               ))}
@@ -35,7 +41,7 @@ const TextTicker = async () => {
 
             <div className="animate-ticker flex gap-24 text-base font-semibold whitespace-nowrap">
               {[...texts, ...texts].map((text, index) => (
-                <span key={index} className="whitespace-pre">
+                <span key={`${text}-${index}`} className="whitespace-pre">
                   {text}
                 </span>
               ))}

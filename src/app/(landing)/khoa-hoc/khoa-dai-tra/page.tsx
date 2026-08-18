@@ -1,12 +1,10 @@
 import { Container } from '@/components/ui';
-import { db } from '@/lib/firebase';
-import { Course, CourseStatus } from '@/types';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { CourseStatus } from '@/types';
 import { Metadata } from 'next';
-import { cache } from 'react';
 import TextTicker from '../../components/text-ticker';
 import CourseCard from './course-card';
 import LearningStep from './learning-step';
+import { getPublicCourses } from '@/services/course.service';
 
 export const metadata: Metadata = {
   title: 'Khóa đại trà online',
@@ -16,22 +14,9 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-const getCourses = cache(async (status: CourseStatus): Promise<Course[]> => {
-  const coursesRef = collection(db, 'courses');
-  const q = query(coursesRef, where('status', '==', status));
-
-  const snapshot = await getDocs(q);
-  const courses: Course[] = snapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...(doc.data() as Omit<Course, 'id'>),
-    startDate: doc.data().startDate?.toDate(),
-  }));
-  return courses.sort((a, b) => a.order - b.order);
-});
-
 const MassCourse = async () => {
-  const inactiveCourses = await getCourses(CourseStatus.Inactive);
-  const activeCourses = await getCourses(CourseStatus.Active);
+  const inactiveCourses = await getPublicCourses(CourseStatus.Inactive);
+  const activeCourses = await getPublicCourses(CourseStatus.Active);
 
   return (
     <div>
