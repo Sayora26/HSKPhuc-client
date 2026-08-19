@@ -5,6 +5,7 @@ import Header from './components/layouts/Header';
 import { adminTheme } from '@/config/theme';
 import { Nunito } from 'next/font/google';
 import { adminForm } from '@/config/form';
+import AuthProvider from '@/components/providers/auth-provider';
 
 const nunito = Nunito({
   variable: '--font-nunito',
@@ -15,13 +16,15 @@ const AdminLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <ConfigProvider theme={adminTheme} form={adminForm}>
       <App className={nunito.variable}>
-        <Layout style={{ minHeight: '100dvh' }}>
-          <Sidebar />
-          <Layout>
-            <Header />
-            <Content>{children}</Content>
+        <AuthProvider>
+          <Layout style={{ minHeight: '100dvh' }}>
+            <Sidebar />
+            <Layout>
+              <Header />
+              <Content>{children}</Content>
+            </Layout>
           </Layout>
-        </Layout>
+        </AuthProvider>
       </App>
     </ConfigProvider>
   );

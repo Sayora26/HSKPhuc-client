@@ -1,3 +1,4 @@
+import { PATHS } from '@/config/routes';
 import { adminDb } from '@/lib/firebase-admin'; // Firestore Admin SDK
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
@@ -55,6 +56,18 @@ export const authOptions: NextAuthOptions = {
       }
       return session;
     },
+
+    redirect({ url, baseUrl }) {
+      if (url.startsWith('/')) return new URL(url, baseUrl).toString();
+
+      // Cho phép chuyển hướng nếu thuộc cùng tên miền
+      if (new URL(url).origin === baseUrl) return url;
+
+      return baseUrl;
+    },
+  },
+  pages: {
+    signIn: PATHS.AUTH.LOGIN,
   },
 };
 

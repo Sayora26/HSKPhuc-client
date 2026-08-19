@@ -42,7 +42,6 @@ const landingSpecificTheme: ThemeConfig = {
     colorTextPlaceholder: '#7d7b7f',
     yellowHover: '#ba9f68',
     yellowActive: '#87642f',
-    colorLink: '#ffffff',
   },
   components: {
     Button: {

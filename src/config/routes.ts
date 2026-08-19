@@ -21,4 +21,10 @@ export const PATHS = {
     COURSES: '/admin/khoa-hoc',
     SETTINGS: '/admin/cai-dat',
   },
+
+  UNAUTHORIZED: '/unauthorized',
+  AUTH: {
+    LOGIN: '/auth/dang-nhap',
+    REGISTER: '/auth/dang-ky',
+  },
 };
