@@ -1,8 +1,23 @@
 import { Container } from '@/components/ui';
+import { PATHS } from '@/config/routes';
 import { Button, Col, Row } from 'antd';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import RegisterForm from '../components/register-form';
 import TextTicker from '../components/text-ticker';
+
+export const metadata: Metadata = {
+  title: 'Đăng ký học',
+  description: 'Đăng ký sớm để nhận ưu đãi hấp dẫn và giữ chỗ học tiếng Trung cùng Thầy Phúc.',
+  alternates: {
+    canonical: PATHS.REGISTRATION,
+  },
+  openGraph: {
+    title: 'Đăng ký học',
+    description: 'Đăng ký sớm để nhận ưu đãi hấp dẫn và giữ chỗ học tiếng Trung cùng Thầy Phúc.',
+    url: PATHS.REGISTRATION,
+  },
+};
 
 const RegisterStudy = () => {
   return (

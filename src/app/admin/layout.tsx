@@ -6,11 +6,23 @@ import { adminTheme } from '@/config/theme';
 import { Nunito } from 'next/font/google';
 import { adminForm } from '@/config/form';
 import AuthProvider from '@/components/providers/auth-provider';
+import { Metadata } from 'next';
 
 const nunito = Nunito({
   variable: '--font-nunito',
   subsets: ['latin', 'vietnamese'],
 });
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
 
 const AdminLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (

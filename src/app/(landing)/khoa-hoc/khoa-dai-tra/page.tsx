@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui';
+import { PATHS } from '@/config/routes';
 import { ClassStatus } from '@/types';
 import { Metadata } from 'next';
 import TextTicker from '../../components/text-ticker';
@@ -10,6 +11,15 @@ export const metadata: Metadata = {
   title: 'Khóa đại trà online',
   description:
     'Khóa học tiếng Trung online dành cho người mới bắt đầu, giúp học viên nắm vững kiến thức cơ bản và phát triển kỹ năng giao tiếp hiệu quả.',
+  alternates: {
+    canonical: PATHS.COURSES.MASS_COURSE,
+  },
+  openGraph: {
+    title: 'Khóa đại trà online',
+    description:
+      'Khóa học tiếng Trung online dành cho người mới bắt đầu, giúp học viên nắm vững kiến thức cơ bản và phát triển kỹ năng giao tiếp hiệu quả.',
+    url: PATHS.COURSES.MASS_COURSE,
+  },
 };
 
 export const revalidate = 60;

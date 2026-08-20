@@ -1,10 +1,27 @@
 import { Container, StaggerText } from '@/components/ui';
+import { PATHS } from '@/config/routes';
 import { Button, Col, Rate, Row } from 'antd';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { FaQuoteRight } from 'react-icons/fa6';
 import TextTicker from '../components/text-ticker';
 import RegisterForm from '../components/register-form';
+
+export const metadata: Metadata = {
+  title: 'Đánh giá từ học viên',
+  description:
+    'Cảm nhận thực tế từ học viên đã học tiếng Trung cùng Thầy Phúc tại Tiếng Trung AFú.',
+  alternates: {
+    canonical: PATHS.REVIEWS,
+  },
+  openGraph: {
+    title: 'Đánh giá từ học viên',
+    description:
+      'Cảm nhận thực tế từ học viên đã học tiếng Trung cùng Thầy Phúc tại Tiếng Trung AFú.',
+    url: PATHS.REVIEWS,
+  },
+};
 
 const Comment = ({ children }: { children: ReactNode }) => {
   return (

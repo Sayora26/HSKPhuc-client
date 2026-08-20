@@ -10,9 +10,17 @@ import LearningRoadmap from './learning-roadmap';
 import Link from 'next/link';
 import Reviews from './reviews';
 import { Metadata } from 'next';
+import { PATHS } from '@/config/routes';
 
 export const metadata: Metadata = {
   title: 'Học ngôn ngữ bằng tư duy',
+  alternates: {
+    canonical: PATHS.HOME,
+  },
+  openGraph: {
+    title: 'Học ngôn ngữ bằng tư duy',
+    url: PATHS.HOME,
+  },
 };
 
 const Home = () => {
