@@ -8,6 +8,7 @@ import {
   MenuUnfoldOutlined,
   ScheduleOutlined,
   SettingOutlined,
+  TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import { Button, Flex, Layout, Menu, Tooltip } from 'antd';
@@ -38,6 +39,11 @@ const siderMenuItems: ItemType<MenuItemType>[] = [
     key: 'courses',
     icon: <ScheduleOutlined />,
     label: <Link href={PATHS.ADMIN.COURSES}>Khóa học</Link>,
+  },
+  {
+    key: 'classes',
+    icon: <TeamOutlined />,
+    label: <Link href={PATHS.ADMIN.CLASSES}>Lớp học</Link>,
   },
   {
     key: 'settings',

@@ -1,5 +1,5 @@
 import { adminDb } from '@/lib/firebase-admin';
-import { Course, CourseStatus } from '@/types';
+import { Course } from '@/types';
 import { revalidateTag, unstable_cache } from 'next/cache';
 
 const getCourseCollection = () => {
@@ -10,25 +10,17 @@ const getCourseCollection = () => {
   return adminDb.collection('courses');
 };
 
-export const getPublicCourses = (status?: CourseStatus) =>
+export const getPublicCourses = () =>
   unstable_cache(
     async () => {
-      let query: FirebaseFirestore.Query = getCourseCollection();
-      if (status !== undefined) {
-        query = query.where('status', '==', status);
-      }
-
-      const snapshot = await query.get();
+      const snapshot = await getCourseCollection().get();
       const courses: Course[] = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...(doc.data() as Omit<Course, 'id'>),
-        startDate: doc.data().startDate?.toDate(),
-        createdAt: doc.data().createdAt?.toDate(),
-        updatedAt: doc.data().updatedAt?.toDate(),
       }));
       return courses.sort((a, b) => a.order - b.order);
     },
-    ['course-list', `course-status-${status}`],
+    ['course-list'],
     {
       tags: ['courses-data'],
     },
@@ -60,4 +52,15 @@ export const updateCourse = async (id: string, data: Omit<Course, 'id'>) => {
   revalidateTag('courses-data', 'max');
 
   return { id, ...data } as Course;
+};
+
+export const deleteCourse = async (id: string) => {
+  const ref = getCourseCollection().doc(id);
+  const existingCourse = await ref.get();
+  if (!existingCourse.exists) {
+    throw new Error('Course not found');
+  }
+  await ref.delete();
+
+  revalidateTag('courses-data', 'max');
 };

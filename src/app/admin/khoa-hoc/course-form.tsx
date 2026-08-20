@@ -1,8 +1,8 @@
 'use client';
 
-import { Course, CourseStatus } from '@/types';
-import { Col, DatePicker, Form, FormInstance, Input, InputNumber, Row, Select } from 'antd';
-import dayjs from 'dayjs';
+import { Course } from '@/types';
+import { Col, Form, FormInstance, Input, InputNumber, Row, Select, SelectProps, Space } from 'antd';
+import Image from 'next/image';
 import { useEffect } from 'react';
 
 interface CourseFormProps {
@@ -10,6 +10,25 @@ interface CourseFormProps {
   course?: Course;
   onFinish?: () => void;
 }
+
+const images: SelectProps['options'] = [
+  {
+    value: '/img/courses/introductory.png',
+    label: 'Vỡ lòng',
+  },
+  {
+    value: '/img/courses/hsk3.png',
+    label: 'HSK 3',
+  },
+  {
+    value: '/img/courses/hsk4.png',
+    label: 'HSK 4',
+  },
+  {
+    value: '/img/courses/hsk5.png',
+    label: 'HSK 5',
+  },
+];
 
 const CourseForm = ({ form, course, onFinish }: CourseFormProps) => {
   const handleFinish = async (values: Omit<Course, 'id'>) => {
@@ -19,7 +38,6 @@ const CourseForm = ({ form, course, onFinish }: CourseFormProps) => {
       body: JSON.stringify({
         ...values,
         id: course?.id,
-        startDate: dayjs(values.startDate).toISOString(),
       }),
     });
 
@@ -38,12 +56,7 @@ const CourseForm = ({ form, course, onFinish }: CourseFormProps) => {
         order: course?.order,
         name: course?.name,
         target: course?.target,
-        schedule: course?.schedule,
-        startDate: course?.startDate ? dayjs(course.startDate) : undefined,
-        maxStudents: course?.maxStudents,
-        currentStudents: course?.currentStudents,
         image: course?.image,
-        status: course?.status,
       }}
       onFinish={handleFinish}
     >
@@ -64,43 +77,33 @@ const CourseForm = ({ form, course, onFinish }: CourseFormProps) => {
           </Form.Item>
         </Col>
         <Col span={24}>
-          <Form.Item name="schedule" label="Lịch học" rules={[{ required: true }]}>
-            <Input placeholder="VD: 18h - 19h30 | Thứ 2, 4, 6" />
-          </Form.Item>
-        </Col>
-        <Col span={24}>
-          <Form.Item name="startDate" label="Ngày khai giảng" rules={[{ required: true }]}>
-            <DatePicker className="w-full" format="DD/MM/YYYY" placeholder="Chọn ngày" />
-          </Form.Item>
-        </Col>
-        <Col span={24} md={12}>
-          <Form.Item name="currentStudents" label="Sĩ số hiện tại" rules={[{ required: true }]}>
-            <InputNumber className="w-full" min={0} />
-          </Form.Item>
-        </Col>
-        <Col span={24} md={12}>
-          <Form.Item name="maxStudents" label="Sĩ số tối đa" rules={[{ required: true }]}>
-            <InputNumber className="w-full" min={1} />
-          </Form.Item>
-        </Col>
-        <Col span={24}>
-          <Form.Item name="image" label="Ảnh (đường dẫn)" rules={[{ required: true }]}>
-            <Input placeholder="/img/courses/example.png" />
-          </Form.Item>
-        </Col>
-        <Col span={24}>
-          <Form.Item name="status" label="Trạng thái" rules={[{ required: true }]}>
+          <Form.Item name="image" label="Ảnh" rules={[{ required: true }]}>
             <Select
-              options={[
-                {
-                  value: CourseStatus.Active,
-                  label: 'Đang tuyển sinh',
-                },
-                {
-                  value: CourseStatus.Inactive,
-                  label: 'Đang vận hành',
-                },
-              ]}
+              options={images}
+              optionRender={(option) => (
+                <Space>
+                  <Image
+                    src={String(option.data.value)}
+                    alt={String(option.data.label)}
+                    width={24}
+                    height={24}
+                    className="h-6 w-6 rounded object-cover"
+                  />
+                  {option.data.label}
+                </Space>
+              )}
+              labelRender={(props) => (
+                <Space>
+                  <Image
+                    src={String(props.value)}
+                    alt={String(props.label)}
+                    width={20}
+                    height={20}
+                    className="h-5 w-5 rounded object-cover"
+                  />
+                  {props.label}
+                </Space>
+              )}
             />
           </Form.Item>
         </Col>
