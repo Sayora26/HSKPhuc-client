@@ -1,6 +1,10 @@
 allowBuilds:
+  '@firebase/util': true
+  protobufjs: true
   sharp: true
   unrs-resolver: true
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+overrides:
+  jwks-rsa>jose: ^5.9.6

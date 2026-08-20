@@ -1,20 +1,13 @@
 'use client';
+import { formatDate } from '@/lib/dayjs';
+import { ClassStatus, ClassWithCourse } from '@/types';
 import { Button, Modal } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
 import RegisterForm from '../../components/register-form';
-import { formatDate } from '@/lib/dayjs';
 
 interface CourseCardProps {
-  data: {
-    image: string;
-    name: string;
-    target: string;
-    schedule: string;
-    startDate: Date;
-    maxStudents: number;
-    currentStudents: number;
-  };
+  data: ClassWithCourse;
 }
 
 const CourseCard = ({ data }: CourseCardProps) => {
@@ -25,8 +18,8 @@ const CourseCard = ({ data }: CourseCardProps) => {
       <div className="flex gap-4 md:gap-6">
         <div>
           <Image
-            src={data.image}
-            alt={data.name}
+            src={data.course.image}
+            alt={data.course.name}
             width={200}
             height={200}
             className="aspect-square w-20 rounded-2xl md:w-30 lg:w-50"
@@ -34,7 +27,7 @@ const CourseCard = ({ data }: CourseCardProps) => {
         </div>
         <ul className="flex-1 text-base md:text-lg">
           <li>
-            Đối tượng: <span className="font-semibold">{data.target}</span>
+            Đối tượng: <span className="font-semibold">{data.course.target}</span>
           </li>
           <li>Lịch học: {data.schedule}</li>
           <li>Lịch khai giảng: {formatDate(data.startDate)}</li>
@@ -44,13 +37,24 @@ const CourseCard = ({ data }: CourseCardProps) => {
           </li>
         </ul>
         <div className="hidden self-end sm:block">
-          <Button type="primary" size="large" onClick={() => setOpen(true)} disabled>
+          <Button
+            type="primary"
+            size="large"
+            onClick={() => setOpen(true)}
+            disabled={data.status !== ClassStatus.Active}
+          >
             Đăng ký
           </Button>
         </div>
       </div>
       <div className="mt-2 sm:hidden">
-        <Button type="primary" size="large" block onClick={() => setOpen(true)} disabled>
+        <Button
+          type="primary"
+          size="large"
+          block
+          onClick={() => setOpen(true)}
+          disabled={data.status !== ClassStatus.Active}
+        >
           Đăng ký
         </Button>
       </div>
@@ -63,7 +67,10 @@ const CourseCard = ({ data }: CourseCardProps) => {
         destroyOnHidden
       >
         <p className="mx-auto mb-8 text-center">Giáo viên sẽ liên hệ sắp xếp lớp ngay</p>
-        <RegisterForm onAfterFinish={() => setOpen(false)}>
+        <RegisterForm
+          onAfterFinish={() => setOpen(false)}
+          moreInfo={[{ label: 'Khóa đại trà', value: data.course.name }]}
+        >
           <div className="text-center">
             <Button variant="solid" htmlType="submit" type="primary" className="mt-4">
               Đăng ký khóa học

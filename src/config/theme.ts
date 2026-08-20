@@ -9,14 +9,25 @@ const variables = {
 const baseTheme: ThemeConfig = {
   algorithm: antdTheme.darkAlgorithm,
   cssVar: {
-    prefix: 'hsk',
+    key: 'afu',
+    prefix: 'afu',
+  },
+  token: {
+    colorPrimary: variables.colorPrimary,
   },
   components: {
     Button: {
+      fontWeight: 600,
       onlyIconSize: 16,
       onlyIconSizeSM: 16,
       onlyIconSizeLG: 18,
       fontSizeIcon: 16,
+    },
+    Layout: {
+      headerBg: '#ffffff',
+    },
+    InputNumber: {
+      controlWidth: '100%' as unknown as number,
     },
   },
 };
@@ -27,20 +38,16 @@ const landingSpecificTheme: ThemeConfig = {
     borderRadius: 12,
     controlHeight: 36,
     colorText: '#383838',
-    colorPrimary: variables.colorPrimary,
     colorFillTertiary: '#f5f5f5',
     colorTextPlaceholder: '#7d7b7f',
     yellowHover: '#ba9f68',
     yellowActive: '#87642f',
-    colorLink: '#ffffff',
   },
   components: {
     Button: {
-      fontWeight: 600,
       yellow6: '#ae8845',
     },
     Layout: {
-      headerBg: '#ffffff',
       headerHeight: 64,
       headerPadding: 0,
       bodyBg: '#ffffff',
@@ -74,19 +81,17 @@ export const landingTheme = merge({}, baseTheme, landingSpecificTheme);
 const adminSpecificTheme: ThemeConfig = {
   token: {
     fontFamily: "'Nunito', sans-serif",
-    colorPrimary: '#174D69',
   },
   components: {
     Layout: {
-      headerBg: '#ffffff',
       headerPadding: '0 24px',
-      lightSiderBg: '#174D69',
-      siderBg: '#174D69',
+      siderBg: variables.colorPrimary,
     },
     Menu: {
       itemBg: 'transparent',
       itemColor: '#ffffff',
       itemHoverColor: '#ffffff',
+      itemSelectedBg: '#ffffff',
     },
   },
 };

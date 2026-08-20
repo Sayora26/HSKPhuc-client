@@ -1,11 +1,14 @@
 'use client';
 
+import { PATHS } from '@/config/routes';
 import {
   CarryOutOutlined,
   DashboardOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  ScheduleOutlined,
   SettingOutlined,
+  TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import { Button, Flex, Layout, Menu, Tooltip } from 'antd';
@@ -20,7 +23,7 @@ const siderMenuItems: ItemType<MenuItemType>[] = [
   {
     key: 'dashboard',
     icon: <DashboardOutlined />,
-    label: <Link href="/admin">Dashboard</Link>,
+    label: <Link href={PATHS.ADMIN.DASHBOARD}>Dashboard</Link>,
   },
   {
     key: 'exams',
@@ -33,9 +36,19 @@ const siderMenuItems: ItemType<MenuItemType>[] = [
     label: <Link href="/admin/users">Người dùng</Link>,
   },
   {
+    key: 'courses',
+    icon: <ScheduleOutlined />,
+    label: <Link href={PATHS.ADMIN.COURSES}>Khóa học</Link>,
+  },
+  {
+    key: 'classes',
+    icon: <TeamOutlined />,
+    label: <Link href={PATHS.ADMIN.CLASSES}>Lớp học</Link>,
+  },
+  {
     key: 'settings',
     icon: <SettingOutlined />,
-    label: <Link href="/admin/settings">Cài đặt</Link>,
+    label: <Link href={PATHS.ADMIN.SETTINGS}>Cài đặt</Link>,
   },
 ];
 

@@ -1,7 +1,9 @@
 import { FormConfig } from 'antd/es/config-provider/context';
+import { merge } from 'lodash';
 
 const baseForm: FormConfig = {
   colon: false,
+
   validateMessages: {
     required: 'Trường này là bắt buộc',
     types: {
@@ -9,7 +11,10 @@ const baseForm: FormConfig = {
     },
   },
 };
+const landingSpecificForm: FormConfig = {};
 
-export const landingForm: FormConfig = {
-  ...baseForm,
-};
+export const landingForm = merge({}, baseForm, landingSpecificForm);
+
+const adminSpecificForm: FormConfig = {};
+
+export const adminForm = merge({}, baseForm, adminSpecificForm);

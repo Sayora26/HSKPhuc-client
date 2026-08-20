@@ -42,6 +42,10 @@
   .text-gradient {
     @apply bg-linear-180 from-[#dab76b] to-[#eace8e] bg-clip-text text-transparent;
   }
+
+  .bg-gradient {
+    @apply bg-linear-90 from-[#a9bfff] via-[#f3f9ff] to-[#fffcdd];
+  }
 }
 
 @layer components {
@@ -58,7 +62,7 @@
   }
 
   .link-footer {
-    @apply relative pb-0.5 text-white before:absolute before:bottom-0 before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:content-[""] hover:before:scale-x-100;
+    @apply relative pb-0.5 text-white! before:absolute before:bottom-0 before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:content-[""] hover:before:scale-x-100;
   }
 
   .border-comment {
@@ -66,5 +70,29 @@
       linear-gradient(to right, #fff, #fff) padding-box,
       linear-gradient(to bottom, #a2a2a2, #ffffff) border-box;
     border: 4px solid transparent;
+  }
+
+  .afu {
+    &.ant-form {
+      &.ant-form-vertical {
+        & .ant-form-item {
+          & .ant-form-item-required {
+            @apply flex-row-reverse;
+
+            &::after {
+              @apply hidden;
+            }
+
+            &::before {
+              @apply ml-1;
+            }
+          }
+        }
+      }
+    }
+
+    &.ant-form-item-label {
+      @apply font-semibold;
+    }
   }
 }

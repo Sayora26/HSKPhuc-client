@@ -15,4 +15,17 @@ export const PATHS = {
   },
   REVIEWS: '/danh-gia',
   REGISTRATION: '/dang-ky-hoc',
+
+  ADMIN: {
+    DASHBOARD: '/admin',
+    COURSES: '/admin/khoa-hoc',
+    CLASSES: '/admin/lop-hoc',
+    SETTINGS: '/admin/cai-dat',
+  },
+
+  UNAUTHORIZED: '/unauthorized',
+  AUTH: {
+    LOGIN: '/auth/dang-nhap',
+    REGISTER: '/auth/dang-ky',
+  },
 };
