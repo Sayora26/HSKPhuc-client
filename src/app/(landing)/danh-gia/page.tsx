@@ -7,6 +7,7 @@ import { ReactNode } from 'react';
 import { FaQuoteRight } from 'react-icons/fa6';
 import TextTicker from '../components/text-ticker';
 import RegisterForm from '../components/register-form';
+import Gallery from './gallery';
 
 export const metadata: Metadata = {
   title: 'Đánh giá từ học viên',
@@ -39,7 +40,7 @@ const Reviews = () => {
   return (
     <>
       <TextTicker />
-      <Container className="py-6">
+      <Container className="py-8">
         <div className="space-y-6">
           <Row gutter={[24, 24]} align="middle">
             <Col span={24} md={9}>
@@ -116,14 +117,9 @@ const Reviews = () => {
             </Col>
           </Row>
         </div>
-        <StaggerText
-          text={[
-            'Được học sinh yêu thương và tin tưởng ngay từ những ngày đầu đi dạy, khiến mình tin rằng những giá trị mà mình tạo ra đủ để giúp học sinh kiên trì và xây dựng niềm yêu thích đối với tiếng Trung.',
-            'Với mình, học một ngôn ngữ không chỉ là ghi nhớ kiến thức hay chinh phục một kỳ thi, mà còn là quá trình hình thành tư duy và tìm thấy niềm vui trong việc học. Vì vậy, mình luôn cố gắng tạo ra những buổi học có sự đồng hành.',
-            'Mình tin rằng khi học đúng cách, việc học tiếng Trung sẽ không còn là sự cố gắng ngắn hạn mà có thể trở thành một hành trình đủ lâu để nhìn thấy sự thay đổi của chính mình.',
-          ].join('\n')}
-          className="mx-auto max-w-154 text-center text-base"
-        />
+      </Container>
+      <Container className="py-8">
+        <Gallery />
       </Container>
     </>
   );
