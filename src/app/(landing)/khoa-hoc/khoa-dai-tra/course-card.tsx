@@ -10,6 +10,8 @@ interface CourseCardProps {
   data: ClassWithCourse;
 }
 
+export const dynamic = 'force-dynamic';
+
 const CourseCard = ({ data }: CourseCardProps) => {
   const [open, setOpen] = useState(false);
 
@@ -53,7 +55,7 @@ const CourseCard = ({ data }: CourseCardProps) => {
           size="large"
           block
           onClick={() => setOpen(true)}
-          disabled={data.status !== ClassStatus.Active}
+          disabled={data.currentStudents >= data.maxStudents}
         >
           Đăng ký
         </Button>

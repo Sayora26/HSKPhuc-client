@@ -8,6 +8,7 @@ import { FaQuoteRight } from 'react-icons/fa6';
 import TextTicker from '../components/text-ticker';
 import RegisterForm from '../components/register-form';
 import Gallery from './gallery';
+import Banner from './banner';
 
 export const metadata: Metadata = {
   title: 'Đánh giá từ học viên',
@@ -92,7 +93,7 @@ const Reviews = () => {
             </Col>
           </Row>
         </div>
-        <div className="bg-primary mt-8 rounded-2xl p-6">
+        <div className="bg-primary mt-8 rounded-2xl p-8">
           <Row gutter={[24, 24]} align="middle">
             <Col span={24} md={12}>
               <h2 className="mb-6 text-center text-2xl font-bold text-white lg:text-left lg:text-3xl">
@@ -107,13 +108,7 @@ const Reviews = () => {
               </RegisterForm>
             </Col>
             <Col span={24} md={12}>
-              <Image
-                src="/img/register-banner.png"
-                alt="Đăng ký tư vấn"
-                width={500}
-                height={500}
-                className="w-full object-cover"
-              />
+              <Banner />
             </Col>
           </Row>
         </div>

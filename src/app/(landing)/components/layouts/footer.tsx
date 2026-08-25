@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <AntFooter>
-      <Container className="py-15 text-white not-md:text-center">
+      <Container className="py-15 text-white">
         <Row gutter={[32, 32]} align={md ? 'stretch' : 'middle'}>
           <Col span={24} md={6}>
             <Link href="/" className="flex justify-center">
@@ -82,7 +82,7 @@ const Footer = () => {
           <Col span={24} md={6}>
             <h5 className="mb-4 text-base font-bold">Theo dõi tôi</h5>
             <div className="flex flex-col gap-2">
-              <div className="flex gap-2 not-md:justify-center">
+              <div className="flex gap-2">
                 <Link href={LINKS.FACEBOOK} target="_blank" rel="noopener noreferrer">
                   <Button
                     icon={<Icon component={FaFacebookF} aria-label="Facebook" />}
