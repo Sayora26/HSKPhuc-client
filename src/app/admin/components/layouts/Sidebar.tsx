@@ -2,19 +2,18 @@
 
 import { PATHS } from '@/config/routes';
 import {
-  CarryOutOutlined,
   DashboardOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   ScheduleOutlined,
   SettingOutlined,
   TeamOutlined,
-  UserOutlined,
 } from '@ant-design/icons';
 import { Button, Flex, Layout, Menu, Tooltip } from 'antd';
 import { ItemType, MenuItemType } from 'antd/es/menu/interface';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const { Sider } = Layout;
@@ -25,28 +24,28 @@ const siderMenuItems: ItemType<MenuItemType>[] = [
     icon: <DashboardOutlined />,
     label: <Link href={PATHS.ADMIN.DASHBOARD}>Dashboard</Link>,
   },
+  // {
+  //   key: 'exams',
+  //   icon: <CarryOutOutlined />,
+  //   label: <Link href="/admin/exams">Bài thi</Link>,
+  // },
+  // {
+  //   key: 'users',
+  //   icon: <UserOutlined />,
+  //   label: <Link href="/admin/users">Người dùng</Link>,
+  // },
   {
-    key: 'exams',
-    icon: <CarryOutOutlined />,
-    label: <Link href="/admin/exams">Bài thi</Link>,
-  },
-  {
-    key: 'users',
-    icon: <UserOutlined />,
-    label: <Link href="/admin/users">Người dùng</Link>,
-  },
-  {
-    key: 'courses',
+    key: PATHS.ADMIN.COURSES,
     icon: <ScheduleOutlined />,
     label: <Link href={PATHS.ADMIN.COURSES}>Khóa học</Link>,
   },
   {
-    key: 'classes',
+    key: PATHS.ADMIN.CLASSES,
     icon: <TeamOutlined />,
     label: <Link href={PATHS.ADMIN.CLASSES}>Lớp học</Link>,
   },
   {
-    key: 'settings',
+    key: PATHS.ADMIN.SETTINGS,
     icon: <SettingOutlined />,
     label: <Link href={PATHS.ADMIN.SETTINGS}>Cài đặt</Link>,
   },
@@ -54,6 +53,7 @@ const siderMenuItems: ItemType<MenuItemType>[] = [
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const pathname = usePathname();
 
   return (
     <Sider collapsible collapsed={collapsed} trigger={null}>
@@ -80,7 +80,7 @@ const Sidebar = () => {
           </Tooltip>
         </div>
       </Flex>
-      <Menu mode="inline" defaultSelectedKeys={['dashboard']} items={siderMenuItems} />
+      <Menu mode="inline" selectedKeys={[pathname]} items={siderMenuItems} />
     </Sider>
   );
 };

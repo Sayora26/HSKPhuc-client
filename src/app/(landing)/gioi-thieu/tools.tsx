@@ -17,7 +17,7 @@ const Tools = () => {
         </Col>
         <Col span={0} md={8} lg={12}>
           <span className="text-primary">
-            <StudyTools className="text-9xl" />
+            <StudyTools className="text-9xl" aria-hidden="true" />
           </span>
         </Col>
       </Row>
@@ -26,7 +26,7 @@ const Tools = () => {
         <Col span={24} lg={12}>
           <div className="border-primary flex h-full items-center gap-4 rounded-2xl border px-6 py-4">
             <span className="text-primary">
-              <WebsiteBrowser className="text-7xl md:text-9xl" />
+              <WebsiteBrowser className="text-7xl md:text-9xl" aria-hidden="true" />
             </span>
             <div>
               <h3 className="text-primary text-xl font-semibold uppercase">Ôn bài qua Website</h3>
@@ -40,7 +40,7 @@ const Tools = () => {
         <Col span={24} lg={12}>
           <div className="border-primary flex h-full items-center gap-4 rounded-2xl border px-6 py-4">
             <span className="text-primary">
-              <Wayground className="text-7xl md:text-9xl" />
+              <Wayground className="text-7xl md:text-9xl" aria-hidden="true" />
             </span>
             <div>
               <h3 className="text-primary text-xl font-semibold uppercase">Học cùng Wayground</h3>

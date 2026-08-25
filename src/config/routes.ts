@@ -1,3 +1,5 @@
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://afuchinese.com';
+
 export const LINKS = {
   TIKTOK: 'https://www.tiktok.com/@tiengtrungafu',
   FACEBOOK: 'https://www.facebook.com/tiengtrungafu',

@@ -40,6 +40,7 @@ const landingSpecificTheme: ThemeConfig = {
     colorText: '#383838',
     colorFillTertiary: '#f5f5f5',
     colorTextPlaceholder: '#7d7b7f',
+    colorTextDescription: '#383838',
     yellowHover: '#ba9f68',
     yellowActive: '#87642f',
   },

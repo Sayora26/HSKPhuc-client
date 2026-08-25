@@ -4,6 +4,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import clsx from 'clsx';
+import { SITE_URL } from '@/config/routes';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -11,6 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   generator: 'Next.js',
   applicationName: 'Tiếng Trung AFú',
   referrer: 'origin-when-cross-origin',
@@ -31,6 +33,28 @@ export const metadata: Metadata = {
   title: {
     template: 'Tiếng Trung AFú - %s',
     default: 'Tiếng Trung AFú',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    type: 'website',
+    locale: 'vi_VN',
+    siteName: 'Tiếng Trung AFú',
+    title: 'Tiếng Trung AFú',
+    description:
+      'Học tiếng Trung bài bản bằng phương pháp tư duy đột phá cùng Thầy Phúc. Tập trung vào Hán tự và giao tiếp thực chiến.',
+    url: SITE_URL,
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tiếng Trung AFú',
+    description:
+      'Học tiếng Trung bài bản bằng phương pháp tư duy đột phá cùng Thầy Phúc. Tập trung vào Hán tự và giao tiếp thực chiến.',
   },
 };
 

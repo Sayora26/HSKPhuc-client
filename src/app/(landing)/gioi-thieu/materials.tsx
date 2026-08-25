@@ -18,7 +18,7 @@ const Materials = () => {
         </Col>
         <Col span={0} md={8} lg={12}>
           <span className="text-primary">
-            <Curriculum className="text-9xl" />
+            <Curriculum className="text-9xl" aria-hidden="true" />
           </span>
         </Col>
       </Row>

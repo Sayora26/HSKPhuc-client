@@ -1,10 +1,29 @@
 import { Container, StaggerText } from '@/components/ui';
+import { PATHS } from '@/config/routes';
 import { Button, Col, Rate, Row } from 'antd';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { FaQuoteRight } from 'react-icons/fa6';
 import TextTicker from '../components/text-ticker';
 import RegisterForm from '../components/register-form';
+import Gallery from './gallery';
+import Banner from './banner';
+
+export const metadata: Metadata = {
+  title: 'Đánh giá từ học viên',
+  description:
+    'Cảm nhận thực tế từ học viên đã học tiếng Trung cùng Thầy Phúc tại Tiếng Trung AFú.',
+  alternates: {
+    canonical: PATHS.REVIEWS,
+  },
+  openGraph: {
+    title: 'Đánh giá từ học viên',
+    description:
+      'Cảm nhận thực tế từ học viên đã học tiếng Trung cùng Thầy Phúc tại Tiếng Trung AFú.',
+    url: PATHS.REVIEWS,
+  },
+};
 
 const Comment = ({ children }: { children: ReactNode }) => {
   return (
@@ -22,7 +41,7 @@ const Reviews = () => {
   return (
     <>
       <TextTicker />
-      <Container className="py-6">
+      <Container className="py-8">
         <div className="space-y-6">
           <Row gutter={[24, 24]} align="middle">
             <Col span={24} md={9}>
@@ -74,7 +93,7 @@ const Reviews = () => {
             </Col>
           </Row>
         </div>
-        <div className="bg-primary mt-8 rounded-2xl p-6">
+        <div className="bg-primary mt-8 rounded-2xl p-8">
           <Row gutter={[24, 24]} align="middle">
             <Col span={24} md={12}>
               <h2 className="mb-6 text-center text-2xl font-bold text-white lg:text-left lg:text-3xl">
@@ -89,24 +108,13 @@ const Reviews = () => {
               </RegisterForm>
             </Col>
             <Col span={24} md={12}>
-              <Image
-                src="/img/register-banner.png"
-                alt="Đăng ký tư vấn"
-                width={500}
-                height={500}
-                className="w-full object-cover"
-              />
+              <Banner />
             </Col>
           </Row>
         </div>
-        <StaggerText
-          text={[
-            'Được học sinh yêu thương và tin tưởng ngay từ những ngày đầu đi dạy, khiến mình tin rằng những giá trị mà mình tạo ra đủ để giúp học sinh kiên trì và xây dựng niềm yêu thích đối với tiếng Trung.',
-            'Với mình, học một ngôn ngữ không chỉ là ghi nhớ kiến thức hay chinh phục một kỳ thi, mà còn là quá trình hình thành tư duy và tìm thấy niềm vui trong việc học. Vì vậy, mình luôn cố gắng tạo ra những buổi học có sự đồng hành.',
-            'Mình tin rằng khi học đúng cách, việc học tiếng Trung sẽ không còn là sự cố gắng ngắn hạn mà có thể trở thành một hành trình đủ lâu để nhìn thấy sự thay đổi của chính mình.',
-          ].join('\n')}
-          className="mx-auto max-w-154 text-center text-base"
-        />
+      </Container>
+      <Container className="py-8">
+        <Gallery />
       </Container>
     </>
   );

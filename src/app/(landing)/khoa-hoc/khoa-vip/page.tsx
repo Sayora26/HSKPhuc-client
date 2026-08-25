@@ -4,11 +4,21 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import TextTicker from '../../components/text-ticker';
 import CourseModal from './course-modal';
+import { PATHS } from '@/config/routes';
 
 export const metadata: Metadata = {
   title: 'Khóa VIP',
   description:
     'Khóa học tiếng Trung VIP dành cho người không có điều kiện tham gia lớp học theo lịch cố định, muốn học riêng cùng giáo viên.',
+  alternates: {
+    canonical: PATHS.COURSES.VIP_COURSE,
+  },
+  openGraph: {
+    title: 'Khóa VIP',
+    description:
+      'Khóa học tiếng Trung VIP dành cho người không có điều kiện tham gia lớp học theo lịch cố định, muốn học riêng cùng giáo viên.',
+    url: PATHS.COURSES.VIP_COURSE,
+  },
 };
 
 const VipCourse = () => {

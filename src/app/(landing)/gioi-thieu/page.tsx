@@ -6,10 +6,19 @@ import { Metadata } from 'next';
 import Accomplishments from './accomplishments';
 import Materials from './materials';
 import Tools from './tools';
+import { PATHS } from '@/config/routes';
 
 export const metadata: Metadata = {
   title: 'Giới thiệu',
   description: 'Giới thiệu về Afú Chinese - Học tiếng Trung cùng Thầy Phúc',
+  alternates: {
+    canonical: PATHS.INTRODUCTION,
+  },
+  openGraph: {
+    title: 'Giới thiệu',
+    description: 'Giới thiệu về Afú Chinese - Học tiếng Trung cùng Thầy Phúc',
+    url: PATHS.INTRODUCTION,
+  },
 };
 
 const About = () => {

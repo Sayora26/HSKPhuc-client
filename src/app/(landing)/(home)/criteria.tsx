@@ -8,7 +8,7 @@ const Criteria = () => {
       <Row gutter={[16, 24]}>
         <Col span={24} md={8}>
           <div className="flex items-center gap-2">
-            <GraduationCap className="text-7xl" />
+            <GraduationCap className="text-7xl" aria-label="200+ học viên tự tin giao tiếp" />
             <div className="flex flex-col">
               <span className="text-gradient text-4xl font-bold">200+</span>
               <span className="text-lg font-semibold">học viên tự tin giao tiếp</span>
@@ -17,7 +17,7 @@ const Criteria = () => {
         </Col>
         <Col span={24} md={8}>
           <div className="flex items-center gap-2">
-            <AwardCheck className="text-7xl" />
+            <AwardCheck className="text-7xl" aria-label="100+ học viên đạt mục tiêu HSK" />
             <div className="flex flex-col">
               <span className="text-gradient text-4xl font-bold">100+</span>
               <span className="text-lg font-semibold">học viên đạt mục tiêu HSK</span>
@@ -26,7 +26,7 @@ const Criteria = () => {
         </Col>
         <Col span={24} md={8}>
           <div className="flex items-center gap-2">
-            <LikeStar className="text-7xl" />
+            <LikeStar className="text-7xl" aria-label="99% học viên hài lòng" />
             <div className="flex flex-col">
               <span className="text-gradient text-4xl font-bold">99%</span>
               <span className="text-lg font-semibold">học viên hài lòng</span>
