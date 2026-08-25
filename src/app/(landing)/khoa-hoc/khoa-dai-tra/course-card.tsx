@@ -1,6 +1,6 @@
 'use client';
 import { formatDate } from '@/lib/dayjs';
-import { ClassStatus, ClassWithCourse } from '@/types';
+import { ClassWithCourse } from '@/types';
 import { Button, Modal } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -43,7 +43,7 @@ const CourseCard = ({ data }: CourseCardProps) => {
             type="primary"
             size="large"
             onClick={() => setOpen(true)}
-            disabled={data.status !== ClassStatus.Active}
+            disabled={data.currentStudents >= data.maxStudents}
           >
             Đăng ký
           </Button>
