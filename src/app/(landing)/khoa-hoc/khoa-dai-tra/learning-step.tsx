@@ -1,6 +1,6 @@
 'use client';
 import { Container } from '@/components/ui';
-import { Card, Col, Grid, Row, Steps, StepsProps } from 'antd';
+import { Card, Col, Row, Steps, StepsProps } from 'antd';
 import { useState } from 'react';
 
 const items: StepsProps['items'] = [
@@ -101,7 +101,6 @@ const contents = [
 
 const LearningStep = () => {
   const [step, setStep] = useState(0);
-  const { md } = Grid.useBreakpoint();
 
   return (
     <div className="bg-linear-90 from-[#a9bfff] via-[#f3f9ff] to-[#fffcdd]">
@@ -113,16 +112,14 @@ const LearningStep = () => {
           <Steps
             items={items}
             type="dot"
-            orientation={md ? 'horizontal' : 'vertical'}
             classNames={{
               itemSection:
                 'transition-all duration-250 mx-4 py-4 px-2 rounded-2xl in-[.ant-steps-item-active]:bg-secondary',
-              itemWrapper: 'md:flex-col-reverse! max-md:items-center!',
               itemTitle: 'font-semibold in-[.ant-steps-item-active]:text-white!',
               itemSubtitle: 'in-[.ant-steps-item-active]:text-white! md:order-first',
               itemContent: 'in-[.ant-steps-item-active]:text-white!',
-              itemRail: 'bottom-1.5! top-auto!',
             }}
+            responsive
             current={step}
             onChange={setStep}
           />

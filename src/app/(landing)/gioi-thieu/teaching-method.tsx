@@ -23,7 +23,7 @@ const TeachingMethod = () => {
         </Col>
         <Col span={0} md={8} lg={12}>
           <span className="text-primary">
-            <BrainGear className="text-9xl" />
+            <BrainGear className="text-9xl" aria-hidden="true" />
           </span>
         </Col>
       </Row>
@@ -32,7 +32,7 @@ const TeachingMethod = () => {
         <Col span={24} md={12}>
           <div className="border-secondary flex h-full gap-4 rounded-2xl border px-6 py-4">
             <span className="text-secondary">
-              <Flashcards className="text-5xl md:text-7xl" />
+              <Flashcards className="text-5xl md:text-7xl" aria-hidden="true" />
             </span>
             <div>
               <h3 className="text-secondary text-xl font-semibold">
@@ -49,7 +49,7 @@ const TeachingMethod = () => {
         <Col span={24} md={12}>
           <div className="border-secondary flex h-full gap-4 rounded-2xl border px-6 py-4">
             <span className="text-secondary">
-              <UsersSpeech className="text-5xl md:text-7xl" />
+              <UsersSpeech className="text-5xl md:text-7xl" aria-hidden="true" />
             </span>
             <div>
               <h3 className="text-secondary text-xl font-semibold">
@@ -65,7 +65,7 @@ const TeachingMethod = () => {
         <Col span={24} md={12}>
           <div className="border-secondary flex h-full gap-4 rounded-2xl border px-6 py-4">
             <span className="text-secondary">
-              <VibrateHeadphone className="text-5xl md:text-7xl" />
+              <VibrateHeadphone className="text-5xl md:text-7xl" aria-hidden="true" />
             </span>
             <div>
               <h3 className="text-secondary text-xl font-semibold">
@@ -82,7 +82,7 @@ const TeachingMethod = () => {
         <Col span={24} md={12}>
           <div className="border-secondary flex h-full gap-4 rounded-2xl border px-6 py-4">
             <span className="text-secondary">
-              <BookSearch className="text-5xl md:text-7xl" />
+              <BookSearch className="text-5xl md:text-7xl" aria-hidden="true" />
             </span>
             <div>
               <h3 className="text-secondary text-xl font-semibold">

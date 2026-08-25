@@ -53,7 +53,7 @@ const ZaloSvg = () => (
 );
 
 const Zalo: React.FC<Partial<CustomIconComponentProps>> = (props) => (
-  <Icon component={ZaloSvg} {...props} />
+  <Icon component={ZaloSvg} aria-label="Zalo" {...props} />
 );
 
 export default Zalo;

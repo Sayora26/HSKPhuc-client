@@ -63,7 +63,7 @@ const Comment = ({ data }: { data: IComment }) => {
   return (
     <div className="my-2 rounded-xl bg-[#f3f3f3] p-4 shadow-md shadow-black/30">
       <div className="flex items-center gap-4">
-        <Avatar name={data.name} src={data.avatar} size="large" />
+        <Avatar name={data.name} src={data.avatar} alt={data.name} size="large" />
         <span className="text-primary text-lg font-semibold">{`${data.name} | ${data.level}`}</span>
       </div>
       <p className="mt-2 text-base">{`"${data.comment}"`}</p>

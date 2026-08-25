@@ -85,7 +85,7 @@ const Footer = () => {
               <div className="flex gap-2 not-md:justify-center">
                 <Link href={LINKS.FACEBOOK} target="_blank" rel="noopener noreferrer">
                   <Button
-                    icon={<Icon component={FaFacebookF} />}
+                    icon={<Icon component={FaFacebookF} aria-label="Facebook" />}
                     style={
                       {
                         '--afu-button-default-bg': 'transparent',
@@ -97,11 +97,13 @@ const Footer = () => {
                     variant="outlined"
                     size="large"
                     className="transition-transform hover:-translate-y-1.5"
-                  />
+                  >
+                    <span className="sr-only">Facebook</span>
+                  </Button>
                 </Link>
                 <Link href={LINKS.TIKTOK} target="_blank" rel="noopener noreferrer">
                   <Button
-                    icon={<Icon component={FaTiktok} />}
+                    icon={<Icon component={FaTiktok} aria-label="TikTok" />}
                     style={
                       {
                         '--afu-button-default-bg': 'transparent',
@@ -113,11 +115,13 @@ const Footer = () => {
                     variant="outlined"
                     size="large"
                     className="transition-transform hover:-translate-y-1.5"
-                  />
+                  >
+                    <span className="sr-only">TikTok</span>
+                  </Button>
                 </Link>
                 <Link href={LINKS.YOUTUBE} target="_blank" rel="noopener noreferrer">
                   <Button
-                    icon={<Icon component={FaYoutube} />}
+                    icon={<Icon component={FaYoutube} aria-label="YouTube" />}
                     style={
                       {
                         '--afu-button-default-bg': 'transparent',
@@ -129,7 +133,9 @@ const Footer = () => {
                     variant="outlined"
                     size="large"
                     className="transition-transform hover:-translate-y-1.5"
-                  />
+                  >
+                    <span className="sr-only">YouTube</span>
+                  </Button>
                 </Link>
               </div>
               <ul className="mt-4 flex flex-col gap-2">
