@@ -36,6 +36,7 @@ const Header = () => {
             style={{ cursor: 'pointer' }}
             src={session?.user.image}
             alt={session?.user.name || 'Avatar'}
+            size="large"
           />
         </Dropdown>
       </Flex>

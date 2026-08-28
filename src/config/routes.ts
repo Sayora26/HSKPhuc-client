@@ -22,6 +22,7 @@ export const PATHS = {
     DASHBOARD: '/admin',
     COURSES: '/admin/khoa-hoc',
     CLASSES: '/admin/lop-hoc',
+    USERS: '/admin/nguoi-dung',
     SETTINGS: '/admin/cai-dat',
   },
 

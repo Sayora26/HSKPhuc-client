@@ -8,6 +8,7 @@ import {
   ScheduleOutlined,
   SettingOutlined,
   TeamOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
 import { Button, Flex, Layout, Menu, Tooltip } from 'antd';
 import { ItemType, MenuItemType } from 'antd/es/menu/interface';
@@ -20,7 +21,7 @@ const { Sider } = Layout;
 
 const siderMenuItems: ItemType<MenuItemType>[] = [
   {
-    key: 'dashboard',
+    key: PATHS.ADMIN.DASHBOARD,
     icon: <DashboardOutlined />,
     label: <Link href={PATHS.ADMIN.DASHBOARD}>Dashboard</Link>,
   },
@@ -28,11 +29,6 @@ const siderMenuItems: ItemType<MenuItemType>[] = [
   //   key: 'exams',
   //   icon: <CarryOutOutlined />,
   //   label: <Link href="/admin/exams">Bài thi</Link>,
-  // },
-  // {
-  //   key: 'users',
-  //   icon: <UserOutlined />,
-  //   label: <Link href="/admin/users">Người dùng</Link>,
   // },
   {
     key: PATHS.ADMIN.COURSES,
@@ -43,6 +39,11 @@ const siderMenuItems: ItemType<MenuItemType>[] = [
     key: PATHS.ADMIN.CLASSES,
     icon: <TeamOutlined />,
     label: <Link href={PATHS.ADMIN.CLASSES}>Lớp học</Link>,
+  },
+  {
+    key: PATHS.ADMIN.USERS,
+    icon: <UserOutlined />,
+    label: <Link href={PATHS.ADMIN.USERS}>Người dùng</Link>,
   },
   {
     key: PATHS.ADMIN.SETTINGS,
