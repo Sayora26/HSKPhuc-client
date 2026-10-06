@@ -2,6 +2,7 @@
 
 import { PATHS } from '@/config/routes';
 import {
+  BookOutlined,
   DashboardOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -44,6 +45,11 @@ const siderMenuItems: ItemType<MenuItemType>[] = [
     key: PATHS.ADMIN.USERS,
     icon: <UserOutlined />,
     label: <Link href={PATHS.ADMIN.USERS}>Người dùng</Link>,
+  },
+  {
+    key: PATHS.ADMIN.EXERCISES,
+    icon: <BookOutlined />,
+    label: <Link href={PATHS.ADMIN.EXERCISES}>Bài tập</Link>,
   },
   {
     key: PATHS.ADMIN.SETTINGS,

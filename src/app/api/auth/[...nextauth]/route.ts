@@ -1,10 +1,18 @@
 import { PATHS } from '@/config/routes';
-import { adminDb } from '@/lib/firebase-admin'; // Firestore Admin SDK
+import { api } from '@/lib/api';
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-// Danh sách email mặc định làm Admin (Optionally)
-const ADMIN_EMAILS = [process.env.TEACHER_EMAIL];
+interface GoogleLoginData {
+  accessToken: string;
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    image: string;
+    role: string;
+  };
+}
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -18,32 +26,29 @@ export const authOptions: NextAuthOptions = {
     async signIn({ user }) {
       if (!user.email) return false;
 
-      const userRef = adminDb.collection('users').doc(user.id);
-      const userSnap = await userRef.get();
-
-      if (!userSnap.exists) {
-        const initialRole = ADMIN_EMAILS.includes(user.email) ? 'admin' : 'user';
-
-        await userRef.set({
+      try {
+        const { data } = await api.post<GoogleLoginData>('/auth/google', {
           email: user.email,
           name: user.name,
           image: user.image,
-          role: initialRole,
-          createdAt: new Date(),
         });
-      }
 
-      return true;
+        // Mutate user so the jwt callback receives backend data
+        user.id = data.user.id;
+        user.role = data.user.role;
+        user.accessToken = data.accessToken;
+        return true;
+      } catch {
+        return false;
+      }
     },
 
-    // 2. Đưa Role từ Database vào JWT Token
+    // 2. Đưa Role & accessToken từ backend vào JWT Token
     async jwt({ token, user }) {
       if (user) {
-        const userSnap = await adminDb.collection('users').doc(user.id).get();
-        if (userSnap.exists) {
-          token.role = userSnap.data()?.role || 'user';
-          token.uid = user.id;
-        }
+        token.id = user.id;
+        token.role = user.role;
+        token.accessToken = user.accessToken;
       }
       return token;
     },
@@ -52,7 +57,7 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (session.user) {
         session.user.role = token.role;
-        session.user.id = token.uid as string;
+        session.user.id = token.id;
       }
       return session;
     },

@@ -29,7 +29,7 @@ const AdminLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <ConfigProvider theme={adminTheme} form={adminForm}>
       <App className={nunito.variable}>
         <AuthProvider>
-          <Layout style={{ minHeight: '100dvh' }}>
+          <Layout className="flex-row!" style={{ minHeight: '100dvh' }}>
             <Sidebar />
             <Layout>
               <Header />

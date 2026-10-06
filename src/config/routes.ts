@@ -23,6 +23,7 @@ export const PATHS = {
     COURSES: '/admin/khoa-hoc',
     CLASSES: '/admin/lop-hoc',
     USERS: '/admin/nguoi-dung',
+    EXERCISES: '/admin/bai-tap',
     SETTINGS: '/admin/cai-dat',
   },
 
